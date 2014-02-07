@@ -35,6 +35,17 @@ app.get('/users', user.list);
 /*Load models*/
 require("./models/nounouModel");
 
+/*Test creation bdd structure/*
+var uneNounou = new Nounou({nom:"nom",prenom:"prenom",dateDeNaissance:"dateDeNaissance",civilite:"civilite",adresse:"adresse",email:"adresseEmail",tarifhoraire:"tarifhoraire",descriptionPrestation:"description",tarifhoraire:"tarif"});
+
+uneNounou.save(function (err, doc) {
+    if (err) {
+        console.log({"status": false, "error": err});
+    } else {
+        console.log({"status": true, "error": null});
+    }
+});*/
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
 });
