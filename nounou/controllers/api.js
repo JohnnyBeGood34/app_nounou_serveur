@@ -22,11 +22,10 @@ module.exports = {
         console.log("POST : Creation d'une nounou :");
         console.log(body);
         /*Creation du modèle*/
-
         newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,telephone:body.telephone});
         newNounou.save(function (err, doc) {
             if (err) {
-                res.respond(406);/*Les parametres reçut ne sont pas acceptables*/
+                res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
             } else {
                 res.send({"status": 200, "error": null});
             }
@@ -38,11 +37,42 @@ module.exports = {
         Nounou.findById(idNounou,function(err,nounou){
             if(err)
             {
-                res.respond(406);/*L'id envoyé n'existe pas*/
+                res.respond(405);/*L'id envoyé n'existe pas*/
             }
             else
             {
                 res.send(nounou);
+            }
+        });
+    },
+    updateNounou : function(req,res){
+        var idnounou = req.param('id'),
+            body = req.body;
+        Nounou.findById(idnounou,function(err,nounou){
+            if(err || nounou.isNull){//Si on a une erreur ou que l'objet n'est pas construit
+                res.respond(405); //on renvoie une erreur 405 Invalid arguments
+            }
+            else
+            {
+                //affectation des nouveaux paramètres
+                nounou.nom = body.nom;
+                nounou.prenom = body.prenom;
+                nounou.dateDeNaissance = body.dateDeNaissance;
+                nounou.civilite = body.civilite;
+                nounou.adresse = body.adresse;
+                nounou.email = body.email;
+                nounou.tarifHoraire = body.tarifHoraire;
+                nounou.descriptionPrestation = body.descriptionPrestation;
+                nounou.telephone = body.telephone;
+                /*Sauvegarde des modifications*/
+                nounou.save(function(err,doc){
+                    if(err){//Si il y a une erreur lors du save
+                        res.send({status : 500,error:err});
+                    }
+                    else{
+                        res.send(doc);//Sinon on renvoi l'objet nounou mis à jour
+                    }
+                });
             }
         });
     }

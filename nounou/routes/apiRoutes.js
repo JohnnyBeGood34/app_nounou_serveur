@@ -41,6 +41,17 @@ module.exports = function (app) {
         return api.getOneNounou(req,res);
     });
 
+    /*Update d'une nounou*/
+    app.put('/api/nounou/:id',function(req,res){
+        /*Check des parametres obligatoires*/
+        if (checkParams(req.body, ["nom","prenom","dateDeNaissance","civilite","adresse","email","tarifHoraire","descriptionPrestation","telephone"])) {
+            return api.updateNounou(req,res);
+        }
+        else{
+            return res.respond(406);
+        }
+    });
+
     /*Toute requetes non implémentées dans l'api*/
     app.all('/api/?*', function (req, res) {
         res.respond(405);
