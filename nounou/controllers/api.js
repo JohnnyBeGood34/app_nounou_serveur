@@ -75,5 +75,27 @@ module.exports = {
                 });
             }
         });
+    },
+    removeNounou : function(req,res){
+        var idnounou = req.param('id');
+        Nounou.findById(idnounou,function(err,nounou){
+            if(err || nounou.isNull)
+            {
+                res.respond(405);//L'id renvoyé pas la route n'est pas le bon
+            }
+            else
+            {
+                nonuou.remove(function(err){
+                    if(err)
+                    {
+                        res.send({status : 500,error : err});
+                    }
+                    else
+                    {
+                        res.send({status : 200, error : null});
+                    }
+                });
+            }
+        });
     }
 }
