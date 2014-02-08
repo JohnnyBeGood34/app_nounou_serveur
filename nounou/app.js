@@ -11,6 +11,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/nounou");
 var app = express();
+require('./response');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+/*Routes*/
 app.get('/', routes.index);
 app.get('/users', user.list);
 
@@ -45,6 +46,9 @@ uneNounou.save(function (err, doc) {
         console.log({"status": true, "error": null});
     }
 });*/
+
+/*routes api*/
+var routes = require('./routes/apiRoutes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
