@@ -22,7 +22,8 @@ module.exports = {
         console.log("POST : Creation d'une nounou :");
         console.log(body);
         /*Creation du modèle*/
-        newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,tarifhoraire:body.tarifhoraire});
+
+        newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,telephone:body.telephone});
         newNounou.save(function (err, doc) {
             if (err) {
                 res.respond(406);/*Les parametres reçut ne sont pas acceptables*/
