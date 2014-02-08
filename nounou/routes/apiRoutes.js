@@ -36,6 +36,11 @@ module.exports = function (app) {
 
     });
 
+    /*Retourne un objet nounou*/
+    app.get('/api/nounou/:id',function(req,res){
+        return api.getOneNounou(req,res);
+    });
+
     /*Toute requetes non implémentées dans l'api*/
     app.all('/api/?*', function (req, res) {
         res.respond(405);

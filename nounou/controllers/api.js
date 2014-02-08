@@ -32,5 +32,18 @@ module.exports = {
             }
 
         });
+    },
+    getOneNounou : function(req,res){
+        var idNounou = req.param('id');
+        Nounou.findById(idNounou,function(err,nounou){
+            if(err)
+            {
+                res.respond(406);/*L'id envoyé n'existe pas*/
+            }
+            else
+            {
+                res.send(nounou);
+            }
+        });
     }
 }
