@@ -52,13 +52,13 @@ module.exports = function (app) {
         }
     });
 
-    /*Delete un objet nounou*/
+    /*Supprime un objet nounou*/
     app.delete('/api/nounou/:id',function(req,res){
         return api.removeNounou(req,res);
     });
 
     /*Toute requetes non implémentées dans l'api*/
     app.all('/api/?*', function (req, res) {
-        res.respond(405);
+        res.respond(405);//renvoie le code erreur 504 Method not allowed
     });
 }

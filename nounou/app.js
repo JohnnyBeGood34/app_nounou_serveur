@@ -51,6 +51,19 @@ uneNounou.save(function (err, doc) {
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 
+/**Test hmac pour authentification rest*/
+var crypto    = require('crypto');
+var text      = 'jaime les queues';
+var key       = 'abcdeg';
+var algorithm = 'sha1';
+var hash, hmac;
+hmac = crypto.createHmac(algorithm, key);
+hmac.setEncoding('hex');
+hmac.write(text);
+hmac.end();
+hash = hmac.read();
+console.log(hash);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
 });
