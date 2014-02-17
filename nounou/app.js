@@ -36,22 +36,42 @@ app.get('/users', user.list);
 
 /*Load models*/
 require("./models/nounouModel");
-
+require("./models/timestampModel");
+require("./models/clientModel");
 /*Test creation bdd structure/*
 
-
-var uneAutreNounoudeTest = new Nounou({nom:"Smith",prenom:"Dudette",dateDeNaissance:"11/22/1999",civilite:"Mademoiselle",adresse:"adresse",email:"adresseEmail",tarifhoraire:"20",descriptionPrestation:"description",tarifhoraire:"tarif"});
-
-uneAutreNounoudeTest.save(function (err, doc) {
+var client = new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
+client.save(function(err,doc){
     if (err) {
         console.log({"status": false, "error": err});
     } else {
         console.log({"status": true, "error": null});
     }
-})
- */
+});*/
+/*
+var timestamp = new Timestamp({timestamp:"2545562232",client:"abcd4ABCD"});
+timestamp.save(function(err,doc){
+    if (err) {
+        console.log({"status": false, "error": err});
+    } else {
+        console.log({"status": true, "error": null});
+    }});*/
+
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
+
+/**Test hmac pour authentification rest*/
+var crypto    = require('crypto');
+var text      = 'jaime les queues';
+var key       = 'abcdeg';
+var algorithm = 'sha1';
+var hash, hmac;
+hmac = crypto.createHmac(algorithm, key);
+hmac.setEncoding('hex');
+hmac.write(text);
+hmac.end();
+hash = hmac.read();
+console.log(hash);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
