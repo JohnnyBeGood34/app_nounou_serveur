@@ -59,6 +59,6 @@ module.exports = function (app) {
 
     /*Toute requetes non implémentées dans l'api*/
     app.all('/api/?*', function (req, res) {
-        res.respond(405);//renvoie le code erreur 504 Method not allowed
+        res.respond(405);//renvoie le code erreur 405 Method not allowed
     });
 }
