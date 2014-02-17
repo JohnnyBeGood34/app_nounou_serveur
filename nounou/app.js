@@ -38,16 +38,18 @@ app.get('/users', user.list);
 require("./models/nounouModel");
 
 /*Test creation bdd structure/*
-var uneNounou = new Nounou({nom:"nom",prenom:"prenom",dateDeNaissance:"dateDeNaissance",civilite:"civilite",adresse:"adresse",email:"adresseEmail",tarifhoraire:"tarifhoraire",descriptionPrestation:"description",tarifhoraire:"tarif"});
 
-uneNounou.save(function (err, doc) {
+
+var uneAutreNounoudeTest = new Nounou({nom:"Smith",prenom:"Dudette",dateDeNaissance:"11/22/1999",civilite:"Mademoiselle",adresse:"adresse",email:"adresseEmail",tarifhoraire:"20",descriptionPrestation:"description",tarifhoraire:"tarif"});
+
+uneAutreNounoudeTest.save(function (err, doc) {
     if (err) {
         console.log({"status": false, "error": err});
     } else {
         console.log({"status": true, "error": null});
     }
-});*/
-
+})
+ */
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 

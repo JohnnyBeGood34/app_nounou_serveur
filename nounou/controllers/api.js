@@ -33,7 +33,9 @@ module.exports = {
         });
     },
     getOneNounou : function(req,res){
+        console.log("");
         var idNounou = req.param('id');
+        console.log("idNounou ="+idNounou);
         Nounou.findById(idNounou,function(err,nounou){
             if(err)
             {
