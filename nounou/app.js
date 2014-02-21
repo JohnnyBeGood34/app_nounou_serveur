@@ -49,7 +49,7 @@ client.save(function(err,doc){
     }
 });
 /*
-var timestamp = new Timestamp({timestamp:"2545562232",client:"abcd4ABCD"});
+var timestamp = new Timestamp({timestamp:"1392975942965",client:"abcd4ABCD"});
 timestamp.save(function(err,doc){
     if (err) {
         console.log({"status": false, "error": err});
@@ -74,10 +74,11 @@ testNounou.save(function (err, doc) {
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 
+
 /**Test hmac pour authentification rest*/
 var crypto    = require('crypto');
 var text      = 'jaime les queues';
-var key       = 'abcdeg';
+var key       = 'bonjourbonsoir';
 var algorithm = 'sha1';
 var hash, hmac;
 hmac = crypto.createHmac(algorithm, key);
@@ -87,6 +88,7 @@ hmac.end();
 hash = hmac.read();
 console.log(hash);
 
-http.createServer(app).listen(app.get('port'), function(){
+
+  http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
 });

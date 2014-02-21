@@ -13,8 +13,10 @@ var nounouSchema = mongoose.Schema({
     tarifHoraire:{type:String,required:true},
     descriptionPrestation:{type:String},
     telephone:{type:String},
-    disponibilite:{type:String,required:true},
-    cheminPhoto: {type:String}
+    disponibilite:{type:String},
+    cheminPhoto: {type:String},
+    password : {type:String}
+
 });
 
 var Nounou = mongoose.model('Nounou',nounouSchema);

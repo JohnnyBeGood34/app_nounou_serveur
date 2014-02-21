@@ -33,7 +33,6 @@ module.exports = function (app) {
         } else {
             return res.respond(406);
         }
-
     });
 
     /*Retourne un objet nounou*/
