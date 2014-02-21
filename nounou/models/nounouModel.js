@@ -14,7 +14,8 @@ var nounouSchema = mongoose.Schema({
     descriptionPrestation:{type:String},
     telephone:{type:String},
     disponibilite:{type:String},
-    cheminPhoto: {type:String}
+    cheminPhoto: {type:String},
+    password : {type:String}
 });
 
 var Nounou = mongoose.model('Nounou',nounouSchema);
