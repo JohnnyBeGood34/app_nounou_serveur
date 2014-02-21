@@ -27,7 +27,7 @@ module.exports = {
             if (err) {
                 res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
             } else {
-                res.send({"status": 200, "error": null});
+                res.send({"code":200,"status": 200, "message": null});
             }
 
         });
@@ -67,7 +67,7 @@ module.exports = {
                 /*Sauvegarde des modifications*/
                 nounou.save(function(err,doc){
                     if(err){//Si il y a une erreur lors du save
-                        res.send({status : 500,error:err});
+                        res.send({"code":500,"status": 500, "message": "error"});
                     }
                     else{
                         res.send(doc);//Sinon on renvoi l'objet nounou mis à jour
@@ -88,11 +88,11 @@ module.exports = {
                 nonuou.remove(function(err){
                     if(err)
                     {
-                        res.send({status : 500,error : err});
+                        res.send({"code":500,"status": 500, "message": "error"});
                     }
                     else
                     {
-                        res.send({status : 200, error : null});
+                        res.send({"code":200,"status": 200, "message": null});
                     }
                 });
             }
