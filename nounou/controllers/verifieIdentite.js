@@ -3,7 +3,6 @@
  * permet de vérifier l'identite du client
  */
 var mongoose = require('mongoose'),
-    cle = "bonjourbonsoir",
     text = "",
     crypto = require('crypto'),
     key = 'bonjourbonsoir',
@@ -11,8 +10,11 @@ var mongoose = require('mongoose'),
     hash,
     hmac;
 module.exports = {
-    verifieIdentite: function (login, timestamp, req, signature) {
-        var body = req.body;
+    verifieIdentite: function (req) {
+        var body = req.body,
+            timestamp = reg.param('time'),
+            login = req.param('login'),
+            signature = req.param('signature');
         /*Find du client*/
         Client.findOne({pseudo: login}, function (err, client) {
             if (err)//Si on en trouve pas le client
@@ -24,7 +26,7 @@ module.exports = {
                 //console.log(password)
                 Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
                     var timestampClient;
-                    
+
                     if (!docTimestamp.length) {
                         timestampClient = 0;
                     }
@@ -36,7 +38,7 @@ module.exports = {
                     {
                         /*Vérification signature*/
                         Object.keys(body).forEach(function (key) {
-                            text += req.body[key];
+                            text += body[key];
                         });
                         text += password;
                         hmac = crypto.createHmac(algorithm, key);
