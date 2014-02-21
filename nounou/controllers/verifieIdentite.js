@@ -5,46 +5,50 @@
 var mongoose = require('mongoose'),
     cle = "bonjourbonsoir",
     text = "",
-    crypto    = require('crypto'),
-    key       = 'bonjourbonsoir',
+    crypto = require('crypto'),
+    key = 'bonjourbonsoir',
     algorithm = 'sha1',
     hash,
     hmac;
 module.exports = {
-    verifieIdentite : function(login,timestamp,req,signature){
+    verifieIdentite: function (login, timestamp, req, signature) {
         var body = req.body;
         /*Find du client*/
-        Client.findOne({pseudo : login},function(err,client){
-            if(err)//Si on en trouve pas le client
+        Client.findOne({pseudo: login}, function (err, client) {
+            if (err)//Si on en trouve pas le client
             {
                 return false;//On retourne false
             }
-            else
-            {
+            else {
                 var password = client.password;
                 //console.log(password)
-                Timestamp.find({client : client.pseudo}).sort({_id:'descending'}).limit(1).exec(function(err,docTimestamp){
-                    var timestampClient = docTimestamp[0];
-
+                Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
+                    var timestampClient;
+                    
+                    if (!docTimestamp.length) {
+                        timestampClient = 0;
+                    }
+                    else {
+                        timestampClient = docTimestamp[0];
+                    }
                     //console.log(currentTimestamp);
-                    if(parseInt(timestampClient.timestamp) < parseInt(timestamp))//Si le timestamp en base est plus petit que le timestamp reçut
+                    if (parseInt(timestampClient.timestamp) < parseInt(timestamp))//Si le timestamp en base est plus petit que le timestamp reçut
                     {
                         /*Vérification signature*/
-                        Object.keys(body).forEach(function(key){
-                            text+=req.body[key];
+                        Object.keys(body).forEach(function (key) {
+                            text += req.body[key];
                         });
-                        text+=password;
+                        text += password;
                         hmac = crypto.createHmac(algorithm, key);
                         hmac.setEncoding('hex');
                         hmac.write(text);
                         hmac.end();
                         hash = hmac.read();
-                        if(hash == signature) //Si les signatures correspondent
+                        if (hash == signature) //Si les signatures correspondent
                         {
                             return true;
                         }
-                        else
-                        {
+                        else {
                             return false;
                         }
                     }
