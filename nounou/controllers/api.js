@@ -4,7 +4,7 @@
 /*Variables déclaration*/
 var mongoose = require('mongoose');
 
-/**/
+/*fonctions de l'api pour android*/
 module.exports = {
     getNounous : function(req,res){
         return Nounou.find(function (err, nounous) {
@@ -20,7 +20,7 @@ module.exports = {
             newNounou;
         /*Log console*/
         console.log("POST : Creation d'une nounou :");
-        console.log(body);
+        //console.log(body);
         /*Creation du modèle*/
         newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,telephone:body.telephone});
         newNounou.save(function (err, doc) {
