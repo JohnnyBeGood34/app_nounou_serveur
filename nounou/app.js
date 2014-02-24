@@ -38,44 +38,7 @@ app.get('/users', user.list);
 require("./models/nounouModel");
 require("./models/timestampModel");
 require("./models/clientModel");
-/*Test creation bdd structure/
 
-var client = new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
-client.save(function(err,doc){
-    if (err) {
-        console.log({"status": false, "error": err});
-    } else {
-        console.log({"status": true, "error": null});
-    }
-});
-/*
-var timestamp = new Timestamp({timestamp:"1392975942965",client:"abcd4ABCD"});
-timestamp.save(function(err,doc){
-    if (err) {
-        console.log({"status": false, "error": err});
-    } else {
-        console.log({"status": true, "error": null});
-<<<<<<< HEAD
-    }});*/
-/*
-=======
-    }});
-
->>>>>>> 2a659b1c3407a322d02af145c843f380d7437277
-var testNounou=new Nounou({nom:"testTel",prenom:"test",dateDeNaissance:"1983",civilite:"Monsieur",
-    adresse:"aaa",email:"aaaa",tarifHoraire:"20",descriptionPrestation:"aaa",telephone:"012233445",
-disponibilite:"tout le temps",cheminPhoto:"url"});
-
-testNounou.save(function (err, doc) {
-    if (err) {
-        console.log(err.errors);
-    }
-
-    else {
-        console.log({'status': true, "error": null});
-    }
-});
-/*
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 
