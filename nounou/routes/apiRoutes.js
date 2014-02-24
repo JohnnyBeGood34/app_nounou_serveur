@@ -21,16 +21,34 @@ module.exports = function (app) {
 
     /*Retourne la liste de toutes les nounous de la base de données*/
     app.get('/api/nounous', function (req, res){
-        return api.getNounous(req,res);
+        if(checkParams(req.param,['time','login','signature'])){
+
+                return api.getNounous(req,res);
+
+        }
+        else{
+           return res.respond(403);
+        }
+
     });
 
     /*Creation d'une nounou*/
     app.post('/api/nounous',function(req,res){
         /*Check des parametres reçut (obligatoires)*/
         //console.log(req.body + "abcdghkjetriu");
-        if (checkParams(req.body, ["nom","prenom","civilite","adresse","email","tarifHoraire","disponibilité","password"])) {
 
-            return api.createNounou(req,res);
+        if (checkParams(req.body, ["nom","prenom","civilite","adresse","email","tarifHoraire","disponibilité","password"])) {
+            if(checkParams(req.param,['time','login','signature'])){
+                if(verifIdentite(req)){
+                    return api.createNounou(req,res);
+                }
+               else {
+                    return res.respond(401);
+                }
+            }
+            else{
+                return res.respond(403);
+            }
         } else {
             return res.respond(406);
         }
@@ -38,14 +56,31 @@ module.exports = function (app) {
 
     /*Retourne un objet nounou*/
     app.get('/api/nounou/:id',function(req,res){
-        return api.getOneNounou(req,res);
+        if(checkParams(req.param,['time','login','signature'])){
+
+                return api.getOneNounou(req,res);
+
+        }
+        else{
+          return  res.respond(403);
+        }
     });
 
     /*Update d'une nounou*/
     app.put('/api/nounou/:id',function(req,res){
         /*Check des parametres obligatoires*/
         if (checkParams(req.body, ["nom","prenom","dateDeNaissance","civilite","adresse","email","tarifHoraire","descriptionPrestation","telephone"])) {
-            return api.updateNounou(req,res);
+            if(checkParams(req.param,['time','login','signature'])){
+                if(verifIdentite(req)){
+                    return api.updateNounou(req,res);
+                }
+                else{
+                    return res.respond(401);
+                }
+            }
+            else {
+                return res.respond(403);
+            }
         }
         else{
             return res.respond(406);
@@ -54,7 +89,17 @@ module.exports = function (app) {
 
     /*Supprime un objet nounou*/
     app.delete('/api/nounou/:id',function(req,res){
-        return api.removeNounou(req,res);
+        if(checkParams(req.param,['time','login','signature'])){
+            if(verifIdentite(req)){
+                return api.removeNounou(req,res);
+            }
+            else {
+                return res.respond(401);
+            }
+        }
+        else{
+           return res.respond(403);
+        }
     });
 
     /*Toute requetes non implémentées dans l'api*/
