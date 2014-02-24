@@ -75,11 +75,7 @@ testNounou.save(function (err, doc) {
         console.log({'status': true, "error": null});
     }
 });
-<<<<<<< HEAD
-*/
-=======
- */
->>>>>>> 2a659b1c3407a322d02af145c843f380d7437277
+/*
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 
