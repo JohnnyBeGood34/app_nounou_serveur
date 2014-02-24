@@ -27,7 +27,7 @@ module.exports = {
                 Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
                     var timestampClient;
 
-                    if (!docTimestamp.length) {
+                    if (!docTimestamp.length) {//Si c'est la première requete du client
                         timestampClient = 0;
                     }
                     else {
