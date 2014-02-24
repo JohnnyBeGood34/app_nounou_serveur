@@ -55,7 +55,7 @@ timestamp.save(function(err,doc){
         console.log({"status": false, "error": err});
     } else {
         console.log({"status": true, "error": null});
-    }});*/
+    }});
 
 var testNounou=new Nounou({nom:"testTel",prenom:"test",dateDeNaissance:"1983",civilite:"Monsieur",
     adresse:"aaa",email:"aaaa",tarifHoraire:"20",descriptionPrestation:"aaa",telephone:"012233445",
@@ -70,7 +70,7 @@ testNounou.save(function (err, doc) {
         console.log({'status': true, "error": null});
     }
 });
-
+ */
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 

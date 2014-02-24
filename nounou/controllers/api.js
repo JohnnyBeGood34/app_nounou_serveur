@@ -22,12 +22,14 @@ module.exports = {
         console.log("POST : Creation d'une nounou :");
         //console.log(body);
         /*Creation du modèle*/
-        newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,telephone:body.telephone});
+        newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,
+            adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,
+            telephone:body.telephone,disponibilite:body.disponibilite,cheminPhoto:body.cheminPhoto,password:body.password});
         newNounou.save(function (err, doc) {
             if (err) {
                 res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
             } else {
-                res.send({"code":200,"status": 200, "message": null});
+                res.send({"code":200,"status": 200, "message": err.errors.message});
             }
 
         });

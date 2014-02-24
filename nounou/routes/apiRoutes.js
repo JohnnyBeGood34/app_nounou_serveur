@@ -27,8 +27,8 @@ module.exports = function (app) {
     /*Creation d'une nounou*/
     app.post('/api/nounous',function(req,res){
         /*Check des parametres reçut (obligatoires)*/
-        console.log(req.body + "abcdghkjetriu");
-        if (checkParams(req.body, ["nom","prenom","dateDeNaissance","civilite","adresse","email","tarifHoraire","descriptionPrestation","telephone"])) {
+        console.log(req.body.nom);
+        if (checkParams(req.body, ["nom","prenom","dateDeNaissance","civilite","adresse","email","tarifHoraire","descriptionPrestation","telephone","disponiblite","cheminPhoto","password"])) {
             return api.createNounou(req,res);
         } else {
             return res.respond(406);

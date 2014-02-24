@@ -31,6 +31,7 @@ Nounou.schema.path('email').validate(function(value){
  */
 
 /*Test OK*/
+/*
 Nounou.schema.path('tarifHoraire').validate(function(value){
     console.log("tarif horaire ="+value);
     return /^[0-20]/.test(value);
@@ -39,6 +40,7 @@ Nounou.schema.path('tarifHoraire').validate(function(value){
 },'Tarif horaire unvalide');
 
 /*Test OK*/
+/*
 Nounou.schema.path('telephone').validate(function(value){
         console.log("Téléphone = "+value);
         return /^0[0-9]{9}$/.test(value);
@@ -52,6 +54,6 @@ Nounou.schema.path('dateDeNaissance').validate(function(value){
     }
 
     ,"Date de naissance invalide");
-
+*/
 global.Nounou = Nounou;
 
