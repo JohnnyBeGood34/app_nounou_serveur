@@ -13,25 +13,25 @@ var nounouSchema = mongoose.Schema({
     tarifHoraire:{type:String,required:true},
     descriptionPrestation:{type:String},
     telephone:{type:String},
-    disponibilite:{type:String},
+    disponibilite:{type:String,required:true},
     cheminPhoto: {type:String},
-    password : {type:String}
+    password : {type:String,required:true}
 
 });
 
 var Nounou = mongoose.model('Nounou',nounouSchema);
 
 
-/*
+
 Nounou.schema.path('email').validate(function(value){
 
        return /^[a-z0-9]+@[a-z]{2,}.[a-z]{2,4}$/.test(value);
     }
     ,console.log('Email invalide'));
- */
+
 
 /*Test OK*/
-/*
+
 Nounou.schema.path('tarifHoraire').validate(function(value){
     console.log("tarif horaire ="+value);
     return /^[0-20]/.test(value);
@@ -40,7 +40,7 @@ Nounou.schema.path('tarifHoraire').validate(function(value){
 },'Tarif horaire unvalide');
 
 /*Test OK*/
-/*
+
 Nounou.schema.path('telephone').validate(function(value){
         console.log("Téléphone = "+value);
         return /^0[0-9]{9}$/.test(value);
@@ -48,9 +48,10 @@ Nounou.schema.path('telephone').validate(function(value){
 
     ,"Téléphone invalide");
 
+/*
 Nounou.schema.path('dateDeNaissance').validate(function(value){
         console.log("Date de Naissance = "+value);
-        return true;
+        return /[1-31][/][0-12]/.test(value);
     }
 
     ,"Date de naissance invalide");
