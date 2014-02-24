@@ -29,7 +29,7 @@ module.exports = {
             if (err) {
                 res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
             } else {
-                res.send({"code":200,"status": 200, "message": err.errors.message});
+                res.send({"code":200,"status": 200, "message": "ok"});
             }
 
         });
