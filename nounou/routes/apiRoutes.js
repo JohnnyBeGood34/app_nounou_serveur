@@ -22,9 +22,7 @@ module.exports = function (app) {
     /*Retourne la liste de toutes les nounous de la base de données*/
     app.get('/api/nounous', function (req, res){
         if(checkParams(req.param,['time','login','signature'])){
-
                 return api.getNounous(req,res);
-
         }
         else{
            return res.respond(403);
