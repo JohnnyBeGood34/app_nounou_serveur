@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 module.exports = {
     verifieIdentite: function (req) {
         var body = req.body,
-            timestamp = reg.param('time'),
+            timestamp = req.param('time'),
             login = req.param('login'),
             signature = req.param('signature');
         /*Find du client*/
