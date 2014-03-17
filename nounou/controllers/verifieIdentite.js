@@ -15,11 +15,13 @@ module.exports = {
             timestamp = req.param('time'),
             login = req.param('login'),
             signature = req.param('signature');
+          var result = false;
         /*Find du client*/
         Client.findOne({pseudo: login}, function (err, client) {
+
             if (err)//Si on en trouve pas le client
             {
-                return false;//On retourne false
+                result=false;//On retourne false
             }
             else {
                 var password = client.password;
@@ -49,19 +51,22 @@ module.exports = {
                         console.log("Hash "+typeof hash);
                         if (hash == signature) //Si les signatures correspondent
                         {
-                            console.log('ok')
+                            console.log('ok');
+                            result=true;
                         }
                         else{
-                            console.log('ko')
+                            console.log('ko');
+                            result=false;
                         }
                     }
                     else //Sinon on retourne false, car celà veut dire que la requete à déjà été envoyée
                     {
-                        return false;
+                        result=false;
                     }
                 });
                 
             }
         });
+        return result;
     }
 }
