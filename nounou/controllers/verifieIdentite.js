@@ -7,12 +7,12 @@ var mongoose = require('mongoose'),
     crypto = require('crypto'),
     key = 'bonjourbonsoir',
     algorithm = 'sha1',
-    hash,
+    hash="",
     hmac;
 module.exports = {
     verifieIdentite: function (req) {
         var body = req.body,
-            timestamp = reg.param('time'),
+            timestamp = req.param('time'),
             login = req.param('login'),
             signature = req.param('signature');
         /*Find du client*/
@@ -26,7 +26,6 @@ module.exports = {
                 //console.log(password)
                 Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
                     var timestampClient;
-
                     if (!docTimestamp.length) {//Si c'est la première requete du client
                         timestampClient = 0;
                     }
@@ -46,12 +45,14 @@ module.exports = {
                         hmac.write(text);
                         hmac.end();
                         hash = hmac.read();
+                        console.log("Signature type "+typeof signature);
+                        console.log("Hash "+typeof hash);
                         if (hash == signature) //Si les signatures correspondent
                         {
-                            return true;
+                            console.log('ok')
                         }
-                        else {
-                            return false;
+                        else{
+                            console.log('ko')
                         }
                     }
                     else //Sinon on retourne false, car celà veut dire que la requete à déjà été envoyée
