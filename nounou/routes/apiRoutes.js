@@ -22,13 +22,7 @@ module.exports = function (app) {
     /*Retourne la liste de toutes les nounous de la base de données*/
     app.get('/api/nounous', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature'])) {
-            if (identite.verifieIdentite(req)) {
                 return api.getNounous(req, res);
-            }
-            else {
-                //return res.respond(401);
-                console.log('erreur auth')
-            }
         }
         else {
             return res.respond(403);
@@ -39,15 +33,15 @@ module.exports = function (app) {
     /*Creation d'une nounou*/
     app.post('/api/nounous', function (req, res) {
         /*Check des parametres reçut (obligatoires)*/
-        //console.log(req.body + "abcdghkjetriu");
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
             if (identite.verifieIdentite(req)) {
+                console.log("c bon")
                 return api.createNounou(req, res);
-            }
+            }/*
             else {
                 //return res.respond(401);
                 console.log('erreur auth')
-            }
+            }*/
         } else {
             return res.respond(406);
         }
