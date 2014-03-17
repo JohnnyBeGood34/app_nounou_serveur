@@ -49,8 +49,9 @@ module.exports = {
                         console.log("Hash "+typeof hash);
                         if (hash == signature) //Si les signatures correspondent
                         {
-                            return true;
-                        }else{
+                            console.log('ok')
+                        }
+                        else{
                             console.log('ko')
                         }
                     }
