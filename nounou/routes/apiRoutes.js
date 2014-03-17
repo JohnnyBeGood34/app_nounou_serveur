@@ -22,7 +22,7 @@ module.exports = function (app) {
     /*Retourne la liste de toutes les nounous de la base de données*/
     app.get('/api/nounous', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature'])) {
-            if (identite.verifIdentite(req)) {
+            if (identite.verifieIdentite(req)) {
                 return api.getNounous(req, res);
             }
             else {
@@ -41,7 +41,7 @@ module.exports = function (app) {
         /*Check des parametres reçut (obligatoires)*/
         //console.log(req.body + "abcdghkjetriu");
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
-            if (identite.verifIdentite(req)) {
+            if (identite.verifieIdentite(req)) {
                 return api.createNounou(req, res);
             }
             else {
@@ -70,7 +70,7 @@ module.exports = function (app) {
         /*Check des parametres obligatoires*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
             if (checkParams(req.param, ['time', 'login', 'signature'])) {
-                if (identite.verifIdentite(req)) {
+                if (identite.verifieIdentite(req)) {
                     return api.updateNounou(req, res);
                 }
                 else {
@@ -89,7 +89,7 @@ module.exports = function (app) {
     /*Supprime un objet nounou*/
     app.delete('/api/nounou/:id', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature', 'idNounou'])) {
-            if (identite.verifIdentite(req)) {
+            if (identite.verifieIdentite(req)) {
                 return api.removeNounou(req, res);
             }
             else {
