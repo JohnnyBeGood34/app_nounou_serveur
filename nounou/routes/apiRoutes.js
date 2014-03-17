@@ -40,7 +40,7 @@ module.exports = function (app) {
     app.post('/api/nounous', function (req, res) {
         /*Check des parametres reçut (obligatoires)*/
         //console.log(req.body + "abcdghkjetriu");
-        if (checkParams(req.body, ["nom", "prenom","dateDenaissance", "civilite", "adresse", "email", "tarifHoraire","descriptionprestation", "telephone", "disponibilite","cheminPhoto","password"])) {
+        if (checkParams(req.body, ["nom", "prenom","dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire","descriptionPrestation", "telephone", "disponibilite","cheminPhoto","password"])) {
             if (checkParams(req.param, ['time', 'login', 'signature'])) {
                 if (verifIdentite(req)) {
                     return api.createNounou(req, res);
@@ -74,7 +74,7 @@ module.exports = function (app) {
     /*Update d'une nounou*/
     app.put('/api/nounou/:id', function (req, res) {
         /*Check des parametres obligatoires*/
-        if (checkParams(req.body, ["nom", "prenom","dateDenaissance", "civilite", "adresse", "email", "tarifHoraire","descriptionprestation", "telephone", "disponibilite","cheminPhoto","password"])) {
+        if (checkParams(req.body, ["nom", "prenom","dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire","descriptionPrestation", "telephone", "disponibilite","cheminPhoto","password"])) {
             if (checkParams(req.param, ['time', 'login', 'signature'])) {
                 if (verifIdentite(req)) {
                     return api.updateNounou(req, res);
