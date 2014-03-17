@@ -68,6 +68,9 @@ module.exports = {
                 nounou.tarifHoraire = body.tarifHoraire;
                 nounou.descriptionPrestation = body.descriptionPrestation;
                 nounou.telephone = body.telephone;
+                nounou.disponibilite = body.disponibilite;
+                nounou.cheminPhoto = body.cheminPhoto;
+                nounou.password = body.password;
                 /*Sauvegarde des modifications*/
                 nounou.save(function(err,doc){
                     if(err){//Si il y a une erreur lors du save
