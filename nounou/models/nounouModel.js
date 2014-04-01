@@ -22,7 +22,7 @@ var nounouSchema = mongoose.Schema({
 var Nounou = mongoose.model('Nounou',nounouSchema);
 
 
-
+/*
 Nounou.schema.path('email').validate(function(value){
 
        return /^[a-z0-9]+@[a-z]{2,}.[a-z]{2,4}$/.test(value);
@@ -30,7 +30,7 @@ Nounou.schema.path('email').validate(function(value){
     ,console.log('Email invalide'));
 
 
-/*Test OK*/
+
 
 Nounou.schema.path('tarifHoraire').validate(function(value){
     console.log("tarif horaire ="+value);
@@ -39,7 +39,7 @@ Nounou.schema.path('tarifHoraire').validate(function(value){
 
 },'Tarif horaire unvalide');
 
-/*Test OK*/
+
 
 Nounou.schema.path('telephone').validate(function(value){
         console.log("Téléphone = "+value);
