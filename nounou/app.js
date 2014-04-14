@@ -55,7 +55,7 @@ nounou.save(function(err,doc){
     }
 });*/
 
-var client= new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
+/*var client= new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
 client.save(function(err,doc){
     if(err){
         console.log("erreur save client ");
@@ -65,7 +65,7 @@ client.save(function(err,doc){
     }
 });
 
-/*
+*//*
 var stamp= new Timestamp({timestamp:"1",client:"abcd4ABCD"});
 stamp.save(function(err,doc){
    if(err) {

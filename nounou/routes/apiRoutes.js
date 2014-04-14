@@ -22,12 +22,10 @@ module.exports = function (app) {
     /*Retourne la liste de toutes les nounous de la base de données*/
 
     app.get('/api/nounous', function (req, res) {
-        if (checkParams(req.param, ['time', 'login', 'signature'])) {
+
             return api.getNounous(req, res);
-        }
-        else {
-            return res.respond(403);
-        }
+
+
 
     });
 
@@ -51,14 +49,10 @@ module.exports = function (app) {
 
     /*Retourne un objet nounou*/
     app.get('/api/nounou/:id', function (req, res) {
-        if (checkParams(req.param, ['time', 'login', 'signature', 'idNounou'])) {
+
 
             return api.getOneNounou(req, res);
 
-        }
-        else {
-            return  res.respond(403);
-        }
     });
 
     /*Update d'une nounou*/
