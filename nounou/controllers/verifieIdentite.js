@@ -10,12 +10,12 @@ var mongoose = require('mongoose'),
     hash="",
     hmac;
 module.exports = {
-    verifieIdentite: function (req) {
+    verifieIdentite: function (req,call) {
         var body = req.body,
             timestamp = req.param('time'),
             login = req.param('login'),
             signature = req.param('signature');
-          var result = false;
+          var result = true;
         /*Find du client*/
         Client.findOne({pseudo: login}, function (err, client) {
 
@@ -47,26 +47,30 @@ module.exports = {
                         hmac.write(text);
                         hmac.end();
                         hash = hmac.read();
-                        console.log("Signature type "+typeof signature);
-                        console.log("Hash "+typeof hash);
+
                         if (hash == signature) //Si les signatures correspondent
                         {
-                            console.log('ok');
+
                             result=true;
+                            console.log('ok  result :'+result);
                         }
                         else{
-                            console.log('ko');
+
                             result=false;
+                            console.log('ko result :'+result);
                         }
                     }
                     else //Sinon on retourne false, car celà veut dire que la requete à déjà été envoyée
                     {
+                        console.log("test");
                         result=false;
                     }
                 });
                 
             }
         });
+        //console.log("Resturn verfif :"+result);
         return result;
+
     }
 }

@@ -36,13 +36,14 @@ module.exports = function (app) {
         /*Check des parametres reçut (obligatoires)*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
             if (identite.verifieIdentite(req)) {
-                console.log("c bon")
+console.log("appel api verif identite ok ");
                 return api.createNounou(req, res);
-            }/*
+            }
             else {
+                console.log('erreur auth');
                 //return res.respond(401);
-                console.log('erreur auth')
-            }*/
+
+            }
         } else {
             return res.respond(406);
         }

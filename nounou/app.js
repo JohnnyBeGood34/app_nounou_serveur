@@ -41,8 +41,7 @@ require("./models/clientModel");
 
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
-
-
+/*
 var nounou=new Nounou({nom:"testDate",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"adresse",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
     description:"desc",telephone:"0122334455",disponibilite:"dispo",cheminPhoto:"photo",password:"pass"});
 
@@ -55,7 +54,28 @@ nounou.save(function(err,doc){
     }
 });
 
-
+var client= new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
+client.save(function(err,doc){
+    if(err){
+        console.log("erreur save client ");
+    }
+    else{
+        console.log("client enregistré");
+    }
+});
+*/
+/*
+var stamp= new Timestamp({timestamp:"1",client:"abcd4ABCD"});
+stamp.save(function(err,doc){
+   if(err) {
+       console.log("erreur save time ");
+   }
+    else
+   {
+       console.log("time enregistré");
+   }
+});
+*/
   http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
 });
