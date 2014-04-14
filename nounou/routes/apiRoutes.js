@@ -23,7 +23,7 @@ module.exports = function (app) {
 
     app.get('/api/nounous', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature'])) {
-                return api.getNounous(req, res);
+            return api.getNounous(req, res);
         }
         else {
             return res.respond(403);
@@ -35,15 +35,15 @@ module.exports = function (app) {
     app.post('/api/nounous', function (req, res) {
         /*Check des parametres reçut (obligatoires)*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
-            if (identite.verifieIdentite(req)) {
-console.log("appel api verif identite ok ");
-                return api.createNounou(req, res);
-            }
-            else {
-                console.log('erreur auth');
-                //return res.respond(401);
 
-            }
+            identite.verifieIdentite(req, function (response) {
+                if (response) {
+                    return api.createNounou(req, res);
+                } else {
+                    return res.respond(401);
+                }
+            });
+
         } else {
             return res.respond(406);
         }
@@ -66,12 +66,13 @@ console.log("appel api verif identite ok ");
         /*Check des parametres obligatoires*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
             if (checkParams(req.param, ['time', 'login', 'signature'])) {
-                if (identite.verifieIdentite(req)) {
-                    return api.updateNounou(req, res);
-                }
-                else {
-                    return res.respond(401);
-                }
+                identite.verifieIdentite(req, function (response) {
+                    if (response) {
+                        return api.updateNounou(req, res);
+                    } else {
+                        return res.respond(401);
+                    }
+                })
             }
             else {
                 return res.respond(403);
@@ -85,12 +86,13 @@ console.log("appel api verif identite ok ");
     /*Supprime un objet nounou*/
     app.delete('/api/nounou/:id', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature', 'idNounou'])) {
-            if (identite.verifieIdentite(req)) {
-                return api.removeNounou(req, res);
-            }
-            else {
-                return res.respond(401);
-            }
+            identite.verifieIdentite(req, function (response) {
+                if (response) {
+                    return api.removeNounou(req, res);
+                } else {
+                    return res.respond(401);
+                }
+            })
         }
         else {
             return res.respond(403);

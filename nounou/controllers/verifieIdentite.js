@@ -10,18 +10,23 @@ var mongoose = require('mongoose'),
     hash="",
     hmac;
 module.exports = {
-    verifieIdentite: function (req,call) {
+
+    verifieIdentite: function (req,callback) {
+
         var body = req.body,
             timestamp = req.param('time'),
             login = req.param('login'),
             signature = req.param('signature');
+
           var result = true;
+
         /*Find du client*/
         Client.findOne({pseudo: login}, function (err, client) {
 
             if (err)//Si on en trouve pas le client
             {
-                result=false;//On retourne false
+                console.log('client non trouve')
+                callback(false)//On retourne false
             }
             else {
                 var password = client.password;
@@ -48,29 +53,33 @@ module.exports = {
                         hmac.end();
                         hash = hmac.read();
 
+                        //console.log("Signature type "+signature);
+                        //console.log("Hash "+hash);
                         if (hash == signature) //Si les signatures correspondent
                         {
-
-                            result=true;
-                            console.log('ok  result :'+result);
+                            console.log('Bonne signature')
+                            callback(true)
                         }
                         else{
+                            console.log('Mauvaise signature')
+                            callback(false)
 
-                            result=false;
-                            console.log('ko result :'+result);
                         }
                     }
                     else //Sinon on retourne false, car celà veut dire que la requete à déjà été envoyée
                     {
+
                         console.log("test");
                         result=false;
+
+                        console.log('timestamp degueulasse')
+                        callback(false)
+
                     }
                 });
                 
             }
         });
-        //console.log("Resturn verfif :"+result);
-        return result;
 
     }
 }
