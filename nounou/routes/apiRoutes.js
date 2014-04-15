@@ -22,10 +22,7 @@ module.exports = function (app) {
     /*Retourne la liste de toutes les nounous de la base de données*/
 
     app.get('/api/nounous', function (req, res) {
-
             return api.getNounous(req, res);
-
-
 
     });
 
@@ -49,10 +46,7 @@ module.exports = function (app) {
 
     /*Retourne un objet nounou*/
     app.get('/api/nounou/:id', function (req, res) {
-
-
             return api.getOneNounou(req, res);
-
     });
 
     /*Update d'une nounou*/
