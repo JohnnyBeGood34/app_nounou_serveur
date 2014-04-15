@@ -35,13 +35,9 @@ module.exports = {
                 Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
                     var stamp= new Timestamp({timestamp:timestamp,client:login});
                     console.log('Login :'+login);
-<<<<<<< HEAD
 
                     stamp.save(function(err,doc){
-                       // console.log('Timestamp client :'+timestamp.timestamp);
-=======
-                    stamp.save(function(err,doc){
->>>>>>> 8bbb9f77c72a3c56a6f283f22041cc23f553c75e
+
                         if(err){
                             console.log("time stamp non enregistré");
                             callback(false);
@@ -65,33 +61,25 @@ module.exports = {
                                 });
 
                                 text += password;
-<<<<<<< HEAD
-                                console.log('sign :'+text);
-=======
+
                                 console.log("====================="+text);
                                 text+= timestamp;
->>>>>>> 8bbb9f77c72a3c56a6f283f22041cc23f553c75e
+
                                 hmac = crypto.createHmac(algorithm, key);
                                 hmac.setEncoding('hex');
                                 hmac.write(text);
                                 hmac.end();
                                 hash = hmac.read();
 
-<<<<<<< HEAD
-                                console.log("Signature type "+signature);
-                                console.log("Hash "+hash);
-                                if (hash == signature) //Si les signatures correspondent
-                                {
-                                    console.log('Bonne signature');
-                                    callback(true);
-=======
+
+
                                 //console.log("Signature type "+signature);
                                 console.log("Hash --------------"+hash);
                                 if (hash == signature) //Si les signatures correspondent
                                 {
                                     console.log('Bonne signature')
                                     //callback(true)
->>>>>>> 8bbb9f77c72a3c56a6f283f22041cc23f553c75e
+
                                 }
                                 else{
                                     console.log('Mauvaise signature');

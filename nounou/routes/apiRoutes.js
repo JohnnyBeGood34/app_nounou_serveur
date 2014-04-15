@@ -88,7 +88,12 @@ module.exports = function (app) {
     });
 
     app.post('/api/connexionNounou',function(req,res){
-
+             if(checkParams(req.body,['email','password'])){
+                 return api.checkConnection(req,res);
+             }
+        else{
+                 return res.respond(403);
+             }
     });
 
     /*Toute requetes non implémentées dans l'api*/
