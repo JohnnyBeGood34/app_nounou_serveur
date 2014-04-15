@@ -3,7 +3,6 @@
  * permet de vérifier l'identite du client
  */
 var mongoose = require('mongoose'),
-    text = "",
     crypto = require('crypto'),
     key = 'bonjourbonsoir',
     algorithm = 'sha1',
@@ -17,7 +16,8 @@ module.exports = {
         var body = req.body,
             timestamp = req.param('time'),
             login = req.param('login'),
-            signature = req.param('signature');
+            signature = req.param('signature'),
+            text="";
 
           var result = true;
 
@@ -35,7 +35,7 @@ module.exports = {
                 Timestamp.find({client: client.pseudo}).sort({_id: 'descending'}).limit(1).exec(function (err, docTimestamp) {//On récupère le dernier timestamp du client
                     var stamp= new Timestamp({timestamp:timestamp,client:login});
                     console.log('Login :'+login);
-                    stamp.save(function(err,timestamp){
+                    stamp.save(function(err,doc){
                         if(err){
                             console.log(err);
                             callback(false);
@@ -55,7 +55,10 @@ module.exports = {
                                 Object.keys(body).forEach(function (key) {
                                     text += body[key];
                                 });
+
                                 text += password;
+                                console.log("====================="+text);
+                                text+= timestamp;
                                 hmac = crypto.createHmac(algorithm, key);
                                 hmac.setEncoding('hex');
                                 hmac.write(text);
@@ -63,11 +66,11 @@ module.exports = {
                                 hash = hmac.read();
 
                                 //console.log("Signature type "+signature);
-                                //console.log("Hash "+hash);
+                                console.log("Hash --------------"+hash);
                                 if (hash == signature) //Si les signatures correspondent
                                 {
                                     console.log('Bonne signature')
-                                    callback(true)
+                                    //callback(true)
                                 }
                                 else{
                                     console.log('Mauvaise signature')
@@ -83,7 +86,7 @@ module.exports = {
 
                             }
                         }
-                    });
+                    });//Fin ajout imestamp
                 });//Fin Timestamp find
                 
             }
