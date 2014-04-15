@@ -93,6 +93,10 @@ module.exports = function (app) {
         }
     });
 
+    app.post('/api/connexionNounou',function(req,res){
+
+    });
+
     /*Toute requetes non implémentées dans l'api*/
     app.all('/api/?*', function (req, res) {
         res.respond(405);//renvoie le code erreur 405 Method not allowed

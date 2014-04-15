@@ -6,6 +6,17 @@ var mongoose = require('mongoose');
 
 /*fonctions de l'api pour android*/
 module.exports = {
+
+
+    checkConnection:function(req,res){
+        Nounou.findOne({email:req.body['email']},function(err,nounou){
+            if(err){
+                return res.send(err,500);
+            }
+        });
+
+    },
+
     getNounous : function(req,res){
         return Nounou.find(function (err, nounous) {
             if (!err) {
@@ -15,6 +26,7 @@ module.exports = {
             }
         });
     },
+
     createNounou : function(req,res){
         var body = req.body,
             newNounou;
