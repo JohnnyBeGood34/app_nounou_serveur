@@ -9,7 +9,7 @@ module.exports = {
     getNounous : function(req,res){
         return Nounou.find(function (err, nounous) {
             if (!err) {
-                return res.send(nounous,200);
+                return res.send({allNounous:nounous},200);
             } else {
                 return res.send(err,500);
             }
