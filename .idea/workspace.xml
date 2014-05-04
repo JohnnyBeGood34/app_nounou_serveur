@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622aea46-e09c-4227-b56c-d3ba71482318" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nounou/models/geoPointModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nounou/controllers/localisation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/api.js" afterPath="$PROJECT_DIR$/nounou/controllers/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/routes/apiRoutes.js" afterPath="$PROJECT_DIR$/nounou/routes/apiRoutes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" afterPath="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/app.js" afterPath="$PROJECT_DIR$/nounou/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/models/nounouModel.js" afterPath="$PROJECT_DIR$/nounou/models/nounouModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app_nounou_serveur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,19 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nounou/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="2" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="942" max-vertical-offset="1530">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="timestampModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+            <state line="92" column="0" selection-start="2177" selection-end="2177" vertical-scroll-proportion="0.9207459" vertical-offset="774" max-vertical-offset="1768">
               <folding />
             </state>
           </provider>
@@ -48,7 +42,7 @@
       <file leaf-file-name="nounouModel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/models/nounouModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="10" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
+            <state line="37" column="9" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1700">
               <folding />
             </state>
           </provider>
@@ -57,22 +51,16 @@
       <file leaf-file-name="verifieIdentite.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0" vertical-offset="823" max-vertical-offset="1870">
-              <folding>
-                <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-                <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-                <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-                <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-                <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-              </folding>
+            <state line="11" column="18" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clientModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
+      <file leaf-file-name="localisation.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nounou/controllers/localisation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+            <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
@@ -81,16 +69,16 @@
       <file leaf-file-name="apiRoutes.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="48" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.0" vertical-offset="1261" max-vertical-offset="1836">
+            <state line="19" column="33" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1836">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="6" selection-start="715" selection-end="715" vertical-scroll-proportion="0.52040815" vertical-offset="102" max-vertical-offset="2244">
+            <state line="28" column="0" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2703">
               <folding />
             </state>
           </provider>
@@ -109,18 +97,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/nounou/app.js" />
         <option value="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" />
         <option value="$PROJECT_DIR$/nounou/routes/apiRoutes.js" />
+        <option value="$PROJECT_DIR$/nounou/models/geoPointModel.js" />
+        <option value="$PROJECT_DIR$/nounou/models/nounouModel.js" />
+        <option value="$PROJECT_DIR$/nounou/controllers/localisation.js" />
         <option value="$PROJECT_DIR$/nounou/controllers/api.js" />
+        <option value="$PROJECT_DIR$/nounou/app.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1014" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -194,7 +185,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nounou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nounou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -207,6 +234,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
@@ -435,14 +463,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -453,15 +473,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -474,6 +502,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="622aea46-e09c-4227-b56c-d3ba71482318" name="Default" comment="" />
@@ -483,14 +528,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1014" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.014126394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12532912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -498,20 +543,20 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -520,9 +565,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.014126394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21040893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -543,6 +588,13 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="6" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2244">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="2" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
@@ -552,9 +604,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
+        <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/models/nounouModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="10" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0" vertical-offset="823" max-vertical-offset="1870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="48" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.0" vertical-offset="1261" max-vertical-offset="1836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="6" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="2244">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="2" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/nounouModel.js">
@@ -567,21 +662,13 @@
     <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="49" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0" vertical-offset="1203" max-vertical-offset="1734">
-          <folding>
-            <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
@@ -593,9 +680,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/response.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="629">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
@@ -614,29 +699,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="27" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="296" max-vertical-offset="1377">
-          <folding>
-            <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
@@ -662,29 +737,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="27" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="296" max-vertical-offset="1377">
-          <folding>
-            <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
@@ -710,29 +775,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="27" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="296" max-vertical-offset="1377">
-          <folding>
-            <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
@@ -785,64 +840,69 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
+    <entry file="file://$PROJECT_DIR$/nounou/response.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06972789" vertical-offset="41" max-vertical-offset="629" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/app.js">
+    <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="2" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="948" max-vertical-offset="1530">
-          <folding />
-        </state>
+        <state line="13" column="27" selection-start="338" selection-end="338" vertical-scroll-proportion="0.4047619" vertical-offset="0" max-vertical-offset="546" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.06439394" vertical-offset="0" max-vertical-offset="528" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/models/geoPointModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.12927757" vertical-offset="0" max-vertical-offset="526" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/nounouModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/response.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06972789" vertical-offset="41" max-vertical-offset="629">
+        <state line="37" column="9" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="1700">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0" vertical-offset="823" max-vertical-offset="1870">
-          <folding>
-            <marker date="1397552425404" expanded="true" signature="330:3984" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1051:3895" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1278:3855" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="1483:3833" placeholder="{...}" />
-            <marker date="1397552425404" expanded="true" signature="3656:3807" placeholder="{...}" />
-          </folding>
+        <state line="11" column="18" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="1870">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
+    <entry file="file://$PROJECT_DIR$/nounou/controllers/localisation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+        <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="48" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.0" vertical-offset="1261" max-vertical-offset="1836">
+        <state line="19" column="33" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="6" selection-start="715" selection-end="715" vertical-scroll-proportion="0.52040815" vertical-offset="102" max-vertical-offset="2244">
+        <state line="28" column="0" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="2177" selection-end="2177" vertical-scroll-proportion="0.9207459" vertical-offset="774" max-vertical-offset="1768">
           <folding />
         </state>
       </provider>

@@ -2,7 +2,16 @@
  * Created by John on 07/02/14.
  */
 var mongoose = require('mongoose');
+var gm = require('googlemaps');
 
+
+var geoPointSchema=mongoose.Schema({
+    longitude:{type:Number,required:true},
+    latitude:{type:Number,required:true}
+
+});
+
+//var geoPoint=mongoose.model('geoPoint',geoPointSchema);
 var nounouSchema = mongoose.Schema({
     nom:{type : String,required:true},
     prenom:{type:String,required:true},
@@ -15,12 +24,37 @@ var nounouSchema = mongoose.Schema({
     telephone:{type:String},
     disponibilite:{type:String,required:true},
     cheminPhoto: {type:String},
-    password : {type:String,required:true}
-
+    password : {type:String,required:true},
+    localisation:[geoPointSchema]
 });
 
 var Nounou = mongoose.model('Nounou',nounouSchema);
 
+
+nounouSchema.pre('save',function(next){
+
+var address=this.adresse;
+    var self=this;
+   gm.geocode(address, function (err, data) {
+
+        var location = data.results[0].geometry.location;
+       //console.log(location);
+        var result;
+        if (err) {
+            console.log(err);
+            result = "error";
+        }
+        else {
+
+            result = location;
+        }
+
+       self.localisation={latitude:result.lat,longitude:result.lng};
+
+       next();
+    });
+
+});
 
 /*
 Nounou.schema.path('email').validate(function(value){

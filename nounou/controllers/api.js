@@ -4,9 +4,10 @@
 /*Variables déclaration*/
 var mongoose = require('mongoose');
 
+var geolib = require('geolib');
+
 /*fonctions de l'api pour android*/
 module.exports = {
-
 
     checkConnection:function(req,res){
         Nounou.findOne({email:req.body['email']},function(err,nounou){
@@ -15,7 +16,7 @@ module.exports = {
             }
             else{
                 if(nounou.password == req.body['password']){
-                    console.log('Pass nounou :'+nounou.password+'----- pass envoyé :'+req.body['password']);
+                    //console.log('Pass nounou :'+nounou.password+'----- pass envoyé :'+req.body['password']);
                     return res.send(nounou,200);
                 }
                 else{
@@ -28,6 +29,29 @@ module.exports = {
 
     getNounous : function(req,res){
         return Nounou.find(function (err, nounous) {
+
+          /*  var coordAllNounous=[];
+            var nounousOrdered;
+for(var id in nounous){
+
+    coordAllNounous[id]={longitude:nounous[id].localisation[0].longitude,latitude:nounous[id].localisation[0].latitude};
+            }
+console.log("Avant :");
+            coordAllNounous.forEach(function(el){
+                console.log(el);
+                })
+var ordered=geolib.orderByDistance({latitude:43,longitude:4},coordAllNounous);
+            console.log("Aprés :");
+            ordered.forEach(function(position){
+                console.log(position.latitude);
+               Nounou.findOne({localisation:[{latitude:position.latitude}]},function(err,doc){
+                    console.log(doc);
+                });
+                //nounousOrdered;
+            })
+*/
+
+
             if (!err) {
                 return res.send(nounous,200);
             } else {
@@ -43,10 +67,13 @@ module.exports = {
         console.log("POST : Creation d'une nounou :");
         //console.log(body);
         /*Creation du modèle*/
+
         newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,
             adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,
             telephone:body.telephone,disponibilite:body.disponibilite,cheminPhoto:body.cheminPhoto,password:body.password});
+
         newNounou.save(function (err, doc) {
+
             if (err) {
                 res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
             } else {

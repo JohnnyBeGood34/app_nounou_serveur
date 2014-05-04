@@ -42,8 +42,9 @@ require("./models/clientModel");
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
 
-/*
-var nounou=new Nounou({nom:"testDate",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"adresse",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
+
+
+/*var nounou=new Nounou({nom:"testGeopoint",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"Lyon",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
     description:"desc",telephone:"0122334455",disponibilite:"dispo",cheminPhoto:"photo",password:"pass"});
 
 nounou.save(function(err,doc){
@@ -53,9 +54,9 @@ nounou.save(function(err,doc){
     else{
         console.log("success");
     }
-});*/
-
-/*var client= new Client({pseudo:"abcd4ABCD",password:"azerty5AZERTY"});
+});
+*/
+/*var client= new Client({pseudo:"test",password:"azerty5AZERTY"});
 client.save(function(err,doc){
     if(err){
         console.log("erreur save client ");
@@ -78,7 +79,20 @@ stamp.save(function(err,doc){
    }
 });
 */
+/*var geoPoint =new geoPoint({longitude:1,latitude:2});
+geoPoint.save(function(err,doc){
+   if(err){
+       console.log("geopoint non sauvegardé");
+
+   }
+    else{
+       console.log('geopoint sauvegardé');
+   }
+});
+*/
+
   http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server ecoute sur le port ' + app.get('port'));
 });
+
 
