@@ -23,7 +23,6 @@ module.exports = function (app) {
 
     app.get('/api/nounous', function (req, res) {
             return api.getNounous(req, res);
-
     });
 
     /*Creation d'une nounou*/

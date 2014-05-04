@@ -53,7 +53,7 @@ var ordered=geolib.orderByDistance({latitude:43,longitude:4},coordAllNounous);
 
 
             if (!err) {
-                return res.send(nounous,200);
+                return res.send({allNounous:nounous},200);
             } else {
                 return res.send(err,404);
             }
