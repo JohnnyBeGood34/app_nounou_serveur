@@ -65,7 +65,8 @@ client.save(function(err,doc){
     }
 });
 
-*//*
+*/
+/*
 var stamp= new Timestamp({timestamp:"1",client:"abcd4ABCD"});
 stamp.save(function(err,doc){
    if(err) {
