@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 var geolib = require('geolib');
 
 /*fonctions de l'api pour android*/
+
+
 module.exports = {
 
     checkConnection:function(req,res){
@@ -28,37 +30,115 @@ module.exports = {
     },
 
     getNounous : function(req,res){
-        return Nounou.find(function (err, nounous) {
 
-          /*  var coordAllNounous=[];
-            var nounousOrdered;
-for(var id in nounous){
-
-    coordAllNounous[id]={longitude:nounous[id].localisation[0].longitude,latitude:nounous[id].localisation[0].latitude};
-            }
-console.log("Avant :");
-            coordAllNounous.forEach(function(el){
-                console.log(el);
-                })
-var ordered=geolib.orderByDistance({latitude:43,longitude:4},coordAllNounous);
-            console.log("Aprés :");
-            ordered.forEach(function(position){
-                console.log(position.latitude);
-               Nounou.findOne({localisation:[{latitude:position.latitude}]},function(err,doc){
-                    console.log(doc);
-                });
-                //nounousOrdered;
-            })
-*/
+	    var coordAllNounous=new Object();
+	    var nounousOrdered=new Array();
+	    var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
+        //console.log('Lat :'+req.param('lat')+' Long :'+req.param('lng'));
 
 
-            if (!err) {
-                return res.send({allNounous:nounous},200);
-            } else {
-                return res.send(err,404);
-            }
-        });
-    },
+
+	    Nounou.find(function(err,nounous){
+           if(!err){
+	           for(var id in nounous){
+
+		           var idClé=nounous[id]._id;
+		           //console.log("Find :"+idClé);
+		           coordAllNounous[idClé]=
+		           {longitude:nounous[id].localisation[0].longitude,
+			           latitude:nounous[id].localisation[0].latitude}
+	           };
+				var jsonNounou = {};
+	           var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
+	           nounous[key]
+				console.log("Geolib :"+ordered);
+	           getNounous(ordered,function(result){
+
+		           res.send({allNounous:nounousOrdered},200);
+	           })
+           }
+		    else  return res.send(err,404);
+
+	    });
+
+    }
+    ,
+
+	getNounousAround:function(req,res){
+
+		var coordAllNounous=new Object();
+		var nounousOrdered=new Array();
+		var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
+         var distance=parseInt(req.param('km'));
+console.log('distance :'+distance);
+console.log('coord Client :'+coordClient.latitude);
+		function getNounous(coordOrdered,callback){
+
+			var i=0;
+			coordOrdered.forEach(function(coord){
+				Nounou.findById(coord.key,function(err,nounou){
+					//console.log(coord.key);
+					if(!err){
+						nounou.distance=geolib.convertUnit('km',coord.distance,0);
+						nounousOrdered[i]=nounou;
+						if(i==(coordOrdered.length-1)) callback();
+						i++;
+					}
+					else  return res.send(err,404);
+				})
+			});
+		};
+
+		Nounou.find(function(err,nounous){
+			if(!err){
+
+				for(var id in nounous){
+
+					var idClé=nounous[id]._id;
+                     /*
+                     Param 1 : coordonnées du point à comparer
+                     Param 2 : coordonnées du point de départ
+                     Param 3 : Distance du cercle en mètres 
+                     */
+					if(geolib.isPointInCircle(
+						{longitude:nounous[id].localisation[0].longitude,
+						latitude:nounous[id].localisation[0].latitude},
+						coordClient,//{latitude:43.83,longitude:4.35},//
+						300000//rayon du cercle en metres
+					)){
+
+						/*coordAllNounous.push(
+							{key:idClé,
+								longitude:nounous[id].localisation[0].longitude,
+								latitude:nounous[id].localisation[0].latitude
+							}
+						)*/
+						coordAllNounous[idClé]=
+						{longitude:nounous[id].localisation[0].longitude,
+							latitude:nounous[id].localisation[0].latitude}
+					}
+
+				}
+
+               //console.log(coordAllNounous);
+				/*
+				* Param 1: les coordonées à du point de départ
+				* Param 2: Array ou Object des coordonées à  trier par rapport au point de départ
+				* */
+				var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
+				//console.log(ordered);
+				ordered.forEach(function(coord){
+					console.log(coord.key);
+				});
+				/*getNounous(coordAllNounous,function(result){
+					res.send({allNounous:nounousOrdered},200);
+				})*/
+			}
+			else  return res.send(err,404);
+
+		});
+	}
+     ,
 
     createNounou : function(req,res){
         var body = req.body,
@@ -82,6 +162,7 @@ var ordered=geolib.orderByDistance({latitude:43,longitude:4},coordAllNounous);
 
         });
     },
+
     getOneNounou : function(req,res){
         console.log("");
         var idNounou = req.param('id');
@@ -140,7 +221,7 @@ var ordered=geolib.orderByDistance({latitude:43,longitude:4},coordAllNounous);
             }
             else
             {
-                nonuou.remove(function(err){
+                nounou.remove(function(err){
                     if(err)
                     {
                         res.send({"code":404,"status": 404, "message": "error"});

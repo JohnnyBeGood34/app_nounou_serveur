@@ -25,7 +25,8 @@ var nounouSchema = mongoose.Schema({
     disponibilite:{type:String,required:true},
     cheminPhoto: {type:String},
     password : {type:String,required:true},
-    localisation:[geoPointSchema]
+    localisation:[geoPointSchema],
+    distance:Number
 });
 
 var Nounou = mongoose.model('Nounou',nounouSchema);

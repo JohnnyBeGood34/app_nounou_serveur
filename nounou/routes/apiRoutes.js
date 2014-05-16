@@ -19,10 +19,16 @@ function checkParams(received, expected) {
 }
 module.exports = function (app) {
 
-    /*Retourne la liste de toutes les nounous de la base de données*/
+    /***Retourne la liste de toutes les nounous ordonées par distance selon les coordonnées Latitude et longitude reçus ***/
+    app.get('/api/nounous/:lat/:lng', function (req, res) {
 
-    app.get('/api/nounous', function (req, res) {
-            return api.getNounous(req, res);
+            return api.getNounousAround(req,res);
+    });
+
+/***Retourne la liste des nounous dans un rayon donné ***/
+    app.get('/api/nounous/:km',function(req,res){
+
+	    return api.getNounousAround(req,res);
     });
 
     /*Creation d'une nounou*/

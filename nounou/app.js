@@ -43,8 +43,7 @@ require("./models/clientModel");
 var routes = require('./routes/apiRoutes')(app);
 
 
-
-/*var nounou=new Nounou({nom:"testGeopoint",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"Lyon",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
+/*var nounou=new Nounou({nom:"testGeopoint",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"Nantes",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
     description:"desc",telephone:"0122334455",disponibilite:"dispo",cheminPhoto:"photo",password:"pass"});
 
 nounou.save(function(err,doc){
