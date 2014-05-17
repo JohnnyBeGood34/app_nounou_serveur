@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622aea46-e09c-4227-b56c-d3ba71482318" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/api.js" afterPath="$PROJECT_DIR$/nounou/controllers/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/app.js" afterPath="$PROJECT_DIR$/nounou/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iisnode.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app_nounou_serveur.iws" />
@@ -27,10 +26,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="35" selection-start="448" selection-end="448" vertical-scroll-proportion="0.22683705" vertical-offset="113" max-vertical-offset="1819">
+            <state line="15" column="35" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1819">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="azure.err" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/azure.err">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="578">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iisnode.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/iisnode.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="21" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02715655" vertical-offset="0" max-vertical-offset="626">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nounou/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
               <folding />
             </state>
           </provider>
@@ -92,12 +136,13 @@
         <option value="$PROJECT_DIR$/nounou/routes/apiRoutes.js" />
         <option value="$PROJECT_DIR$/nounou/controllers/api.js" />
         <option value="$PROJECT_DIR$/nounou/app.js" />
+        <option value="$PROJECT_DIR$/iisnode.yml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="710" />
-    <option name="y" value="65" />
+    <option name="x" value="587" />
+    <option name="y" value="31" />
     <option name="width" value="1382" />
     <option name="height" value="784" />
   </component>
@@ -174,7 +219,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nounou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_nounou_serveur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nounou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -277,14 +358,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="710" y="65" width="1382" height="784" extended-state="0" />
+    <frame x="587" y="31" width="1382" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0014869889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19182156" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -337,32 +418,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nounou/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="2" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/models/timestampModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="318" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/models/nounouModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/controllers/verifieIdentite.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2454" selection-end="2454" vertical-scroll-proportion="0.0" vertical-offset="823" max-vertical-offset="1870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/models/clientModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="3" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="306" />
@@ -577,11 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/response.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.06972789" vertical-offset="41" max-vertical-offset="629" />
@@ -633,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="49" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1921">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/controllers/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="22" selection-start="2730" selection-end="2730" vertical-scroll-proportion="-14.68" vertical-offset="1265" max-vertical-offset="4250">
@@ -647,9 +690,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/routes/apiRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="49" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1921">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="448" selection-end="448" vertical-scroll-proportion="0.22683705" vertical-offset="113" max-vertical-offset="1819">
+        <state line="15" column="35" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1819">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/azure.err">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iisnode.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="21" selection-start="41" selection-end="41" vertical-scroll-proportion="0.02715655" vertical-offset="0" max-vertical-offset="626">
           <folding />
         </state>
       </provider>
