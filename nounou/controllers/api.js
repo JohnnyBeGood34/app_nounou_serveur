@@ -5,7 +5,7 @@
 var mongoose = require('mongoose');
 
 var geolib = require('geolib');
-
+var async=require('async');
 /*fonctions de l'api pour android*/
 
 
@@ -48,9 +48,9 @@ module.exports = {
 		           {longitude:nounous[id].localisation[0].longitude,
 			           latitude:nounous[id].localisation[0].latitude}
 	           };
-				var jsonNounou = {};
+
 	           var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
-	           nounous[key]
+
 				console.log("Geolib :"+ordered);
 	           getNounous(ordered,function(result){
 
@@ -69,70 +69,80 @@ module.exports = {
 		var coordAllNounous=new Object();
 		var nounousOrdered=new Array();
 		var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
-         var distance=parseInt(req.param('km'));
-console.log('distance :'+distance);
-console.log('coord Client :'+coordClient.latitude);
+        var distance=parseInt(req.param('km'));
+		console.log('distance :'+distance);
+		console.log('coord Client :'+coordClient.latitude);
+
 		function getNounous(coordOrdered,callback){
 
 			var i=0;
-			coordOrdered.forEach(function(coord){
+
+			async.forEach(coordOrdered,function(coord,callback){
+				console.log("Coord avant find :"+coord.key);
 				Nounou.findById(coord.key,function(err,nounou){
-					//console.log(coord.key);
+					console.log("id nounou dans find :"+nounou._id);
 					if(!err){
-						nounou.distance=geolib.convertUnit('km',coord.distance,0);
+						nounou.distance=geolib.convertUnit('km',coord.distance,0);//Ajout de la distance entre le client et cette Nounou
 						nounousOrdered[i]=nounou;
-						if(i==(coordOrdered.length-1)) callback();
+						//if(i==(coordOrdered.length-1)) callback();
+						console.log(i);
 						i++;
+                        callback();
 					}
 					else  return res.send(err,404);
+
 				})
-			});
+			},
+			function(done){
+				console.log("foreach done !");
+			 }
+			)//Foreach
+
 		};
 
 		Nounou.find(function(err,nounous){
 			if(!err){
 
-				for(var id in nounous){
+				for(var i in nounous){
 
-					var idClé=nounous[id]._id;
+					var idClé=nounous[i]._id;
                      /*
                      Param 1 : coordonnées du point à comparer
                      Param 2 : coordonnées du point de départ
-                     Param 3 : Distance du cercle en mètres 
+                     Param 3 : Distance du cercle en mètres
                      */
 					if(geolib.isPointInCircle(
-						{longitude:nounous[id].localisation[0].longitude,
-						latitude:nounous[id].localisation[0].latitude},
-						coordClient,//{latitude:43.83,longitude:4.35},//
-						300000//rayon du cercle en metres
+						{longitude:nounous[i].localisation[0].longitude,
+						latitude:nounous[i].localisation[0].latitude},
+						coordClient,
+						1000000
 					)){
-
 						/*coordAllNounous.push(
 							{key:idClé,
-								longitude:nounous[id].localisation[0].longitude,
-								latitude:nounous[id].localisation[0].latitude
+								longitude:nounous[i].localisation[0].longitude,
+								latitude:nounous[i].localisation[0].latitude
 							}
 						)*/
 						coordAllNounous[idClé]=
-						{longitude:nounous[id].localisation[0].longitude,
-							latitude:nounous[id].localisation[0].latitude}
-					}
+						{longitude:nounous[i].localisation[0].longitude,
+							latitude:nounous[i].localisation[0].latitude}
 
+					}
 				}
 
-               //console.log(coordAllNounous);
+              // console.log("Coord all nounous "+coordAllNounous);
 				/*
 				* Param 1: les coordonées à du point de départ
 				* Param 2: Array ou Object des coordonées à  trier par rapport au point de départ
 				* */
 				var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
-				//console.log(ordered);
-				ordered.forEach(function(coord){
-					console.log(coord.key);
-				});
-				/*getNounous(coordAllNounous,function(result){
+				ordered.forEach(function(ord){
+				//	console.log(ord);
+				})
+
+				getNounous(ordered,function(result){
 					res.send({allNounous:nounousOrdered},200);
-				})*/
+				})
 			}
 			else  return res.send(err,404);
 
