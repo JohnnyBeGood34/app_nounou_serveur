@@ -1,0 +1,13 @@
+Sat May 17 2014 17:25:27 GMT+0200 (Paris, Madrid (heure d’été)):
+<Error 3c 21 44 4f 43 54 59 50 45 20 48 54 4d 4c 20 50 55 42 4c 49 43 20 22 2d 2f 2f 57 33 43 2f 2f 44 54 44 20 48 54 4d 4c 20 34 2e 30 31 2f 2f 45 4e 22 22 68 ...>
+Error
+    at Function.ServiceClient._normalizeError (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\node_modules\azure\node_modules\azure-common\lib\services\serviceclient.js:785:23)
+    at ScmService.ServiceClient._processResponse (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\node_modules\azure\node_modules\azure-common\lib\services\serviceclient.js:450:41)
+    at processResponseCallback (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\node_modules\azure\node_modules\azure-common\lib\services\serviceclient.js:213:35)
+    at IncomingMessage.<anonymous> (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\node_modules\azure\node_modules\azure-common\lib\services\serviceclient.js:242:17)
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)
+    at _stream_readable.js:920:16
+    at process._tickCallback (node.js:415:13)
+    at doLogStream (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\site.log._js:235:11)
+    at __2 (c:\Users\Easy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\site.log._js:95:18)
+
