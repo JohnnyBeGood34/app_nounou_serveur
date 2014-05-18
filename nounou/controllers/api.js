@@ -5,13 +5,21 @@
 var mongoose = require('mongoose');
 
 var geolib = require('geolib');
-var async=require('async');
-/*fonctions de l'api pour android*/
+var eachAsync=require('each-async');
+var fs=require('fs');
 
 
+
+
+
+/*API : toutes les fonctions appelées dans l'apiRoutes.js*/
 module.exports = {
 
-    checkConnection:function(req,res){
+	/*
+	* Fonction de vérification du mot de passe
+	* */
+    identification:function(req,res){
+	   // console.log('Email envoyé :'+req.body['email']);
         Nounou.findOne({email:req.body['email']},function(err,nounou){
             if(err){
                 return res.send(err,404);
@@ -29,132 +37,29 @@ module.exports = {
 
     },
 
+    /*Renvoie les nounous ordonnées par distance à 100 km par défaut
+    *
+    * */
     getNounous : function(req,res){
-
-	    var coordAllNounous=new Object();
-	    var nounousOrdered=new Array();
-	    var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
-        //console.log('Lat :'+req.param('lat')+' Long :'+req.param('lng'));
-
-
-
-	    Nounou.find(function(err,nounous){
-           if(!err){
-	           for(var id in nounous){
-
-		           var idClé=nounous[id]._id;
-		           //console.log("Find :"+idClé);
-		           coordAllNounous[idClé]=
-		           {longitude:nounous[id].localisation[0].longitude,
-			           latitude:nounous[id].localisation[0].latitude}
-	           };
-
-	           var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
-
-				console.log("Geolib :"+ordered);
-	           getNounous(ordered,function(result){
-
-		           res.send({allNounous:nounousOrdered},200);
-	           })
-           }
-		    else  return res.send(err,404);
-
-	    });
-
+         getNounousNear(req,res);
     }
     ,
 
+	/*Renvoie les nounous dans un rayon donné
+	 *
+	  * */
 	getNounousAround:function(req,res){
-
-		var coordAllNounous=new Object();
-		var nounousOrdered=new Array();
-		var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
-        var distance=parseInt(req.param('km'));
-		console.log('distance :'+distance);
-		console.log('coord Client :'+coordClient.latitude);
-
-		function getNounous(coordOrdered,callback){
-
-			var i=0;
-
-			async.forEach(coordOrdered,function(coord,callback){
-				console.log("Coord avant find :"+coord.key);
-				Nounou.findById(coord.key,function(err,nounou){
-					console.log("id nounou dans find :"+nounou._id);
-					if(!err){
-						nounou.distance=geolib.convertUnit('km',coord.distance,0);//Ajout de la distance entre le client et cette Nounou
-						nounousOrdered[i]=nounou;
-						//if(i==(coordOrdered.length-1)) callback();
-						console.log(i);
-						i++;
-                        callback();
-					}
-					else  return res.send(err,404);
-
-				})
-			},
-			function(done){
-				console.log("foreach done !");
-			 }
-			)//Foreach
-
-		};
-
-		Nounou.find(function(err,nounous){
-			if(!err){
-
-				for(var i in nounous){
-
-					var idClé=nounous[i]._id;
-                     /*
-                     Param 1 : coordonnées du point à comparer
-                     Param 2 : coordonnées du point de départ
-                     Param 3 : Distance du cercle en mètres
-                     */
-					if(geolib.isPointInCircle(
-						{longitude:nounous[i].localisation[0].longitude,
-						latitude:nounous[i].localisation[0].latitude},
-						coordClient,
-						1000000
-					)){
-						/*coordAllNounous.push(
-							{key:idClé,
-								longitude:nounous[i].localisation[0].longitude,
-								latitude:nounous[i].localisation[0].latitude
-							}
-						)*/
-						coordAllNounous[idClé]=
-						{longitude:nounous[i].localisation[0].longitude,
-							latitude:nounous[i].localisation[0].latitude}
-
-					}
-				}
-
-              // console.log("Coord all nounous "+coordAllNounous);
-				/*
-				* Param 1: les coordonées à du point de départ
-				* Param 2: Array ou Object des coordonées à  trier par rapport au point de départ
-				* */
-				var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
-				ordered.forEach(function(ord){
-				//	console.log(ord);
-				})
-
-				getNounous(ordered,function(result){
-					res.send({allNounous:nounousOrdered},200);
-				})
-			}
-			else  return res.send(err,404);
-
-		});
+           getNounousNear(req,res);
 	}
      ,
-
+	/*
+	* Création d'une nounou
+	* */
     createNounou : function(req,res){
         var body = req.body,
             newNounou;
         /*Log console*/
-        console.log("POST : Creation d'une nounou :");
+        //console.log("POST : Creation d'une nounou :");
         //console.log(body);
         /*Creation du modèle*/
 
@@ -173,10 +78,13 @@ module.exports = {
         });
     },
 
+   /*
+   *Renvoie une nounou par rapport à son Id
+   * */
     getOneNounou : function(req,res){
-        console.log("");
+
         var idNounou = req.param('id');
-        console.log("idNounou ="+idNounou);
+        //console.log("idNounou ="+idNounou);
         Nounou.findById(idNounou,function(err,nounou){
             if(err)
             {
@@ -188,6 +96,10 @@ module.exports = {
             }
         });
     },
+
+	/*
+	* Mise à jour d'une nounou
+	* */
     updateNounou : function(req,res){
         var idnounou = req.param('id'),
             body = req.body;
@@ -222,6 +134,10 @@ module.exports = {
             }
         });
     },
+
+	/*
+	*Suppression d'une nounou
+	* */
     removeNounou : function(req,res){
         var idnounou = req.param('id');
         Nounou.findById(idnounou,function(err,nounou){
@@ -243,5 +159,98 @@ module.exports = {
                 });
             }
         });
-    }
+    },
+
+    /*
+    * Fonction test save image uploadée
+    * */
+	saveImage:function(req,res){
+
+		console.log('Image ....'+req.files.image.name);
+		fs.readFile(req.files.image.path,function(err,data){
+
+			var nomImage=req.files.image.name;
+
+			if(err) res.send("Probleme de lecture de fichier :"+err);
+
+			fs.writeFile('./public/images/'+nomImage,data,function(err){
+				if(err) console.log("Erreur :"+err);
+				console.log('fichier enregistré');
+			});
+
+		});
+	}
+}
+
+/*Fonction appelée pour les fonctions de géolocalisation getNounous et getNounousAround
+*
+*
+* */
+
+function getNounousNear(req,res){
+
+	var coordAllNounous=new Object();
+	var nounousOrdered=new Array();
+	var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
+	var distance=parseInt(req.param('km'));
+	distance= isNaN(distance) ? 100:distance;//Si pas de param km distance est égal à 100
+	//console.log('distance :'+distance);
+	//console.log('coord Client :'+coordClient.latitude);
+
+	Nounou.find(function(err,nounous){
+		if(!err){
+
+			for(var i in nounous){
+
+				var idClé=nounous[i]._id;
+				/*
+				Fonction GeoLib qui renvoie vrai si le Param 1 est dans le rayon (param3) du param 2
+				 Param 1 : coordonnées du point à comparer
+				 Param 2 : coordonnées du point de départ
+				 Param 3 : Distance du cercle en mètres
+				 */
+				if(geolib.isPointInCircle(
+					{longitude:nounous[i].localisation[0].longitude,latitude:nounous[i].localisation[0].latitude},
+					 coordClient,
+					 distance*1000
+				))
+				{
+					//On construit un objet des coordonées de toutes les nounous avec leur ID en clé
+					coordAllNounous[idClé]=
+					{longitude:nounous[i].localisation[0].longitude,latitude:nounous[i].localisation[0].latitude}
+				}
+			}
+
+		}//
+		else  return res.send(err,404);
+		// console.log("Coord all nounous "+coordAllNounous);
+		/*
+		 * Param 1: les coordonées à du point de départ
+		 * Param 2: Array ou Object des coordonées à  trier par rapport au point de départ
+		 * */
+		var ordered=geolib.orderByDistance(coordClient,coordAllNounous);
+
+		eachAsync(ordered,function(coord,index,done){
+
+				Nounou.findById(coord.key,function(err,nounou){
+
+					if(!err){
+						/*Ajout de la distance dans le Schema entre le client et cette Nounou*/
+						nounou.distance=geolib.convertUnit('km',coord.distance,0);
+						nounousOrdered[index]=nounou;
+						done();
+					}
+					else  return res.send(err,404);
+				})
+			},
+
+			/*Fonction appelée une fois le foreach fini*/
+			function(){
+				//console.log("foreach done !");
+				res.send({allNounous:nounousOrdered},200);
+			}
+		)//Foreach
+
+	});
+
 }

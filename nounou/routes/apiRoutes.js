@@ -17,21 +17,28 @@ function checkParams(received, expected) {
     }
     return allParamsReceived;
 }
+
 module.exports = function (app) {
 
-    /***Retourne la liste de toutes les nounous ordonées par distance selon les coordonnées Latitude et longitude reçus ***/
-    app.get('/api/nounous/:lat/:lng', function (req, res) {
+    /***Retourne la liste de toutes les nounous ordonées par distance selon les coordonnées Latitude et longitude reçus
+     *
+     * */
+    app.get('/api/nounous/latitude/:lat/longitude/:lng', function (req, res) {
 
-            return api.getNounousAround(req,res);
+            return api.getNounous(req,res);
     });
 
-/***Retourne la liste des nounous dans un rayon donné ***/
-    app.get('/api/nounous/:km',function(req,res){
+	/***Retourne la liste des nounous dans un rayon donné
+	 *
+	 * */
+    app.get('/api/nounous/latitude/:lat/longitude/:lng/kilometres/:km',function(req,res){
 
 	    return api.getNounousAround(req,res);
     });
 
-    /*Creation d'une nounou*/
+    /*Creation d'une nounou
+    *
+    * */
     app.post('/api/nounous', function (req, res) {
         /*Check des parametres reçut (obligatoires)*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
@@ -49,12 +56,16 @@ module.exports = function (app) {
         }
     });
 
-    /*Retourne un objet nounou*/
+    /*Retourne un objet nounou par rapport à son Id passé en paramètre
+    *
+    * */
     app.get('/api/nounou/:id', function (req, res) {
             return api.getOneNounou(req, res);
     });
 
-    /*Update d'une nounou*/
+    /*Update d'une nounou par rapport à son Id
+    *
+    * */
     app.put('/api/nounou/:id', function (req, res) {
         /*Check des parametres obligatoires*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
@@ -76,7 +87,9 @@ module.exports = function (app) {
         }
     });
 
-    /*Supprime un objet nounou*/
+    /*Supprime un objet nounou par rapport à son Id
+    *
+    * */
     app.delete('/api/nounou/:id', function (req, res) {
         if (checkParams(req.param, ['time', 'login', 'signature', 'idNounou'])) {
             identite.verifieIdentite(req, function (response) {
@@ -92,17 +105,32 @@ module.exports = function (app) {
         }
     });
 
+    /*Identification d'une nounou : vérification du mot de passe
+    *
+    * */
     app.post('/api/connexionNounou',function(req,res){
              if(checkParams(req.body,['email','password'])){
-                 return api.checkConnection(req,res);
+                 return api.identification(req,res);
              }
         else{
                  return res.respond(403);
              }
     });
 
-    /*Toute requetes non implémentées dans l'api*/
+	/*Test save photo uploadée
+	*
+	* */
+	app.post('/api/image',function(req,res){
+
+		return api.saveImage(req,res);
+	})
+
+
+    /*Toute requetes non implémentées dans l'api renvoie le code erreur 405 Method not allowed
+    *
+    * */
     app.all('/api/?*', function (req, res) {
-        res.respond(405);//renvoie le code erreur 405 Method not allowed
+	    /**/
+        res.respond(405);
     });
 }
