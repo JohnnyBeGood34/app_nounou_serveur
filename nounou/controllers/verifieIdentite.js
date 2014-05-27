@@ -73,7 +73,7 @@ module.exports = {
 
 
 
-                                //console.log("Signature type "+signature);
+                                console.log("Signature type "+signature);
                                 console.log("Hash --------------"+hash);
                                 if (hash == signature) //Si les signatures correspondent
                                 {

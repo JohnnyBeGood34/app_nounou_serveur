@@ -20,6 +20,19 @@ function checkParams(received, expected) {
 
 module.exports = function (app) {
 
+
+	/*Identification d'une nounou : vérification du mot de passe
+	 *
+	 * */
+	app.post('/api/connexionNounou',function(req,res){
+		if(checkParams(req.body,['email','password'])){
+			return api.identification(req,res);
+		}
+		else{
+			return res.respond(403);
+		}
+	});
+
     /***Retourne la liste de toutes les nounous ordonées par distance selon les coordonnées Latitude et longitude reçus
      *
      * */
@@ -67,9 +80,20 @@ module.exports = function (app) {
     *
     * */
     app.put('/api/nounou/:id', function (req, res) {
+
+	    console.log("Params time :"+req.param('time'));
+	    console.log("Params login :"+req.param('login'));
+	    console.log("Params signature :"+req.param('signature'));
+	    console.log("Body :"+req.body['nom']);
         /*Check des parametres obligatoires*/
+
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
-            if (checkParams(req.param, ['time', 'login', 'signature'])) {
+
+	        console.log('Param body ok');
+
+            if (checkParams(req.params, ['time', 'login', 'signature'])) {
+
+	            console.log('Param url ok');
                 identite.verifieIdentite(req, function (response) {
                     if (response) {
                         return api.updateNounou(req, res);
@@ -105,20 +129,10 @@ module.exports = function (app) {
         }
     });
 
-    /*Identification d'une nounou : vérification du mot de passe
-    *
-    * */
-    app.post('/api/connexionNounou',function(req,res){
-             if(checkParams(req.body,['email','password'])){
-                 return api.identification(req,res);
-             }
-        else{
-                 return res.respond(403);
-             }
-    });
 
-	/*Test save photo uploadée
-	*
+
+	/*
+	*Test save photo uploadée
 	* */
 	app.post('/api/image',function(req,res){
 

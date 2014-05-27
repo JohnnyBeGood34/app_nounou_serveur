@@ -19,18 +19,20 @@ module.exports = {
 	* Fonction de vérification du mot de passe
 	* */
     identification:function(req,res){
-	   // console.log('Email envoyé :'+req.body['email']);
+
         Nounou.findOne({email:req.body['email']},function(err,nounou){
-            if(err){
-                return res.send(err,404);
+            if(err || nounou == null){
+	            /*On renvoie not found si l'email ne correspond à aucune NOunou*/
+                return res.send({"code":404,"status":404, "message":"not found"});
             }
             else{
                 if(nounou.password == req.body['password']){
-                    //console.log('Pass nounou :'+nounou.password+'----- pass envoyé :'+req.body['password']);
-                    return res.send(nounou,200);
+                    /*On renvoie Ok si les mots de passe correspondent*/
+	                res.send({"code":200,"status":200, "message":nounou._id});
                 }
                 else{
-                    res.respond(401);
+	                /*On renvoie Unauthorized*/
+	                res.send({"code":401,"status":401, "message":null});
                 }
             }
         });
@@ -176,6 +178,7 @@ module.exports = {
 			fs.writeFile('./public/images/'+nomImage,data,function(err){
 				if(err) console.log("Erreur :"+err);
 				console.log('fichier enregistré');
+				res.send({"code":200,"status": 200, "message": null});
 			});
 
 		});
@@ -199,7 +202,7 @@ function getNounousNear(req,res){
 
 	Nounou.find(function(err,nounous){
 		if(!err){
-
+//res.send({allNounous:nounous});
 			for(var i in nounous){
 
 				var idClé=nounous[i]._id;
