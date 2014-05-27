@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622aea46-e09c-4227-b56c-d3ba71482318" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nounou/public/images/profil.png" />
-      <change type="DELETED" beforePath="C:\Projet_Android\app_nounou_serveur\nounou\azure.err" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projet_Android\app_nounou_serveur\nounou\iisnode.yml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/api.js" afterPath="$PROJECT_DIR$/nounou/controllers/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/routes/apiRoutes.js" afterPath="$PROJECT_DIR$/nounou/routes/apiRoutes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/app.js" afterPath="$PROJECT_DIR$/nounou/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/package.json" afterPath="$PROJECT_DIR$/nounou/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" afterPath="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nounou/iisnode.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="app_nounou_serveur.iws" />
@@ -33,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nounou/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="259" selection-end="259" vertical-scroll-proportion="0.110569105" vertical-offset="136" max-vertical-offset="1819">
+            <state line="12" column="2" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1819">
               <folding />
             </state>
           </provider>
@@ -46,6 +39,15 @@
         <entry file="file://$PROJECT_DIR$/nounou/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="10" column="27" selection-start="207" selection-end="207" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iisnode.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nounou/iisnode.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="11" selection-start="802" selection-end="802" vertical-scroll-proportion="0.62261146" vertical-offset="0" max-vertical-offset="628">
               <folding />
             </state>
           </provider>
@@ -113,18 +115,18 @@
         <option value="$PROJECT_DIR$/nounou/controllers/localisation.js" />
         <option value="$PROJECT_DIR$/nounou/models/nounouModel.js" />
         <option value="$PROJECT_DIR$/iisnode.yml" />
-        <option value="$PROJECT_DIR$/nounou/iisnode.yml" />
         <option value="$PROJECT_DIR$/nounou/controllers/api.js" />
         <option value="$PROJECT_DIR$/nounou/controllers/verifieIdentite.js" />
         <option value="$PROJECT_DIR$/nounou/routes/apiRoutes.js" />
         <option value="$PROJECT_DIR$/nounou/package.json" />
         <option value="$PROJECT_DIR$/nounou/app.js" />
+        <option value="$PROJECT_DIR$/nounou/iisnode.yml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
-    <option name="y" value="64" />
+    <option name="x" value="396" />
+    <option name="y" value="113" />
     <option name="width" value="1382" />
     <option name="height" value="784" />
   </component>
@@ -217,6 +219,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projet_Android\app_nounou_serveur\nounou" />
       <recent name="C:\Projet_Android\app_nounou_serveur\nounou\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -272,7 +275,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="64" width="1382" height="784" extended-state="0" />
+    <frame x="396" y="113" width="1382" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -601,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nounou/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="207" selection-end="207" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nounou/response.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="9" selection-start="580" selection-end="580" vertical-scroll-proportion="0.45859873" vertical-offset="1" max-vertical-offset="629">
@@ -631,7 +627,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nounou/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="259" selection-end="259" vertical-scroll-proportion="0.110569105" vertical-offset="136" max-vertical-offset="1819">
+        <state line="12" column="2" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1819">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="27" selection-start="207" selection-end="207" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nounou/iisnode.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="11" selection-start="802" selection-end="802" vertical-scroll-proportion="0.62261146" vertical-offset="0" max-vertical-offset="628">
           <folding />
         </state>
       </provider>
