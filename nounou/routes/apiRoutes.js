@@ -91,7 +91,7 @@ module.exports = function (app) {
 
 	        console.log('Param body ok');
 
-            if (checkParams(req.params, ['time', 'login', 'signature'])) {
+            if (checkParams(req.query, ['time', 'login', 'signature'])) {
 
 	            console.log('Param url ok');
                 identite.verifieIdentite(req, function (response) {

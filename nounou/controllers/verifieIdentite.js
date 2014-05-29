@@ -57,6 +57,7 @@ module.exports = {
 
                                 /*Vérification signature*/
                                 Object.keys(body).forEach(function (key) {
+	                                console.log("Body :"+body[key]);
                                     text += body[key];
                                 });
 

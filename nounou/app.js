@@ -10,15 +10,15 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 /*Environnement de test*/
-//mongoose.connect("mongodb://localhost:27017/nounou");
+mongoose.connect("mongodb://localhost:27017/nounou");
 /*Environnement de Production Azure*/
-var connectionString =process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-mongoose.connect(connectionString);
+//var connectionString =process.env.CUSTOMCONNSTR_MONGOLAB_URI;
+//mongoose.connect(connectionString);
 var app = express();
 require('./response');
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.favicon());
