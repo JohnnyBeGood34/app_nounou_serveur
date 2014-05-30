@@ -81,19 +81,12 @@ module.exports = function (app) {
     * */
     app.put('/api/nounou/:id', function (req, res) {
 
-	    console.log("Params time :"+req.param('time'));
-	    console.log("Params login :"+req.param('login'));
-	    console.log("Params signature :"+req.param('signature'));
-	    console.log("Body :"+req.body['nom']);
         /*Check des parametres obligatoires*/
 
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
 
-	        console.log('Param body ok');
-
             if (checkParams(req.query, ['time', 'login', 'signature'])) {
 
-	            console.log('Param url ok');
                 identite.verifieIdentite(req, function (response) {
                     if (response) {
                         return api.updateNounou(req, res);
