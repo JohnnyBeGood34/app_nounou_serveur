@@ -51,6 +51,7 @@ var address=this.adresse;
         }
 
        self.localisation={latitude:result.lat,longitude:result.lng};
+       self.cheminPhoto="/images/"+self._id+".png";
 
        next();
     });

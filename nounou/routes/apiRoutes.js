@@ -56,6 +56,7 @@ module.exports = function (app) {
         /*Check des parametres reçut (obligatoires)*/
         if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
 
+	        if (checkParams(req.query, ['time', 'login', 'signature'])) {
             identite.verifieIdentite(req, function (response) {
                 if (response) {
                     return api.createNounou(req, res);
@@ -63,6 +64,10 @@ module.exports = function (app) {
                     return res.respond(401);
                 }
             });
+	        }
+	        else {
+		        return res.respond(403);
+	        }
 
         } else {
             return res.respond(406);
@@ -127,7 +132,7 @@ module.exports = function (app) {
 	/*
 	*Test save photo uploadée
 	* */
-	app.post('/api/image',function(req,res){
+	app.post('/api/image/id/:id',function(req,res){
 
 		return api.saveImage(req,res);
 	})

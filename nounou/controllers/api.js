@@ -130,7 +130,7 @@ module.exports = {
                         res.send({"code":404,"status": 404, "message": "error"});
                     }
                     else{
-                        res.send(doc);//Sinon on renvoi l'objet nounou mis à jour
+	                    res.send({"code":200,"status":200, "message":null});
                     }
                 });
             }
@@ -169,14 +169,19 @@ module.exports = {
 	saveImage:function(req,res){
 
 		console.log('Image ....'+req.files.image.name);
+		console.log("Id nounou :"+req.param('id'));
 		fs.readFile(req.files.image.path,function(err,data){
 
-			var nomImage=req.files.image.name;
+			var nomImage=req.param('id');
+			// req.files.image.name;
 
 			if(err) res.send("Probleme de lecture de fichier :"+err);
 
-			fs.writeFile('./public/images/'+nomImage,data,function(err){
-				if(err) console.log("Erreur :"+err);
+			fs.writeFile('./public/images/'+nomImage+".png",data,function(err){
+				if(err) {
+					console.log("Erreur :"+err);
+					res.send({"code":500,"status": 500, "message": null});
+				}
 				console.log('fichier enregistré');
 				res.send({"code":200,"status": 200, "message": null});
 			});
