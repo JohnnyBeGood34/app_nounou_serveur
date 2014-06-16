@@ -51,13 +51,13 @@ module.exports = {
                             else {
                                 timestampClient = docTimestamp[0];
                             }
-                            console.log('Time stamp BDD :'+timestampClient.timestamp);
+                           // console.log('Time stamp BDD :'+timestampClient.timestamp);
                             if (parseInt(timestampClient.timestamp) < parseInt(timestamp))//Si le timestamp en base est plus petit que le timestamp reçut
                             {
-
+								console.log(body)
                                 /*Vérification signature*/
                                 Object.keys(body).forEach(function (key) {
-	                                console.log("Body :"+body[key]);
+
                                     text += body[key];
                                 });
 
@@ -79,7 +79,7 @@ module.exports = {
                                 if (hash == signature) //Si les signatures correspondent
                                 {
                                     console.log('Bonne signature')
-                                    //callback(true)
+                                    callback(true);
 
                                 }
                                 else{
