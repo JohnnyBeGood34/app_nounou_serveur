@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="622aea46-e09c-4227-b56c-d3ba71482318" name="Default" comment="">
-<<<<<<< HEAD
-      <change type="DELETED" beforePath="A:\dev\app_epsi_nounou\app_nounou_serveur\.idea\workspace.xml___jb_bak___" afterPath="" />
-      <change type="DELETED" beforePath="A:\dev\app_epsi_nounou\app_nounou_serveur\.idea\workspace.xml___jb_old___" afterPath="" />
-=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nounou/controllers/api.js" afterPath="$PROJECT_DIR$/nounou/controllers/api.js" />
->>>>>>> 5c82b64f2445525f7fb893a8fd4f83fef0db8205
     </list>
     <ignored path="app_nounou_serveur.iws" />
     <ignored path=".idea/workspace.xml" />
