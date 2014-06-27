@@ -112,19 +112,19 @@ module.exports = function (app) {
     /*Supprime un objet nounou par rapport à son Id
     *
     * */
-    app.delete('/api/nounou/:id', function (req, res) {
-        if (checkParams(req.param, ['time', 'login', 'signature', 'idNounou'])) {
-            identite.verifieIdentite(req, function (response) {
-                if (response) {
-                    return api.removeNounou(req, res);
-                } else {
-                    return res.respond(401);
-                }
-            })
-        }
-        else {
-            return res.respond(403);
-        }
+    app.delete('/api/nounou/id/:id', function (req, res) {
+
+
+		    if (checkParams(req.query, ['time', 'login', 'signature'])) {
+
+					    return api.removeNounou(req, res);
+
+		    }
+		    else {
+			    return res.respond(403);
+		    }
+
+
     });
 
 

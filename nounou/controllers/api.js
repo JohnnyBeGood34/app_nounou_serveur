@@ -156,6 +156,7 @@ module.exports = {
                     }
                     else
                     {
+	                    deleteImage(nounou._id);
                         res.send({"code":200,"status": 200, "message": null});
                     }
                 });
@@ -188,6 +189,14 @@ module.exports = {
 
 		});
 	}
+}
+
+/*
+* Fonction permettant d'effacer l'image de profil d'une Nounou en fonction de son id
+* */
+ function deleteImage(idNounou){
+
+	fs.unlink('./public/images/'+idNounou+".png");
 }
 
 /*Fonction appelée pour les fonctions de géolocalisation getNounous et getNounousAround
