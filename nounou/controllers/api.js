@@ -41,7 +41,7 @@ module.exports = {
             else{
                 //Si on appele le get all nounou c'est qu'il n'y a pas de GPS donc distance = 0
                 eachAsync(json,function(element,index,done){
-                    element.distance = 0;
+                    element.distance = "0";
                     done();
                 });
                 res.send({allNounous:json});
