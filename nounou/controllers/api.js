@@ -75,7 +75,7 @@ module.exports = {
         /*Creation du modèle*/
 
         newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,
-            adresse:body.adresse,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,
+            adresse:body.adresse,ville:body.ville,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,
             telephone:body.telephone,disponibilite:body.disponibilite,cheminPhoto:body.cheminPhoto,password:body.password});
 
         newNounou.save(function (err, nounou) {
@@ -126,6 +126,7 @@ module.exports = {
                 nounou.dateDeNaissance = body.dateDeNaissance;
                 nounou.civilite = body.civilite;
                 nounou.adresse = body.adresse;
+	            nounou.ville= body.ville;
                 nounou.email = body.email;
                 nounou.tarifHoraire = body.tarifHoraire;
                 nounou.descriptionPrestation = body.descriptionPrestation;

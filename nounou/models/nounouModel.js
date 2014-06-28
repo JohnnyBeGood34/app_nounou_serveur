@@ -17,6 +17,7 @@ var nounouSchema = mongoose.Schema({
     dateDeNaissance:{type:String},
     civilite:{type:String,required:true},
     adresse:{type:String,required:true},
+	ville:{type:String,required:true},
     email:{type:String,required:true},
     tarifHoraire:{type:String,required:true},
     descriptionPrestation:{type:String},
@@ -33,7 +34,7 @@ var Nounou = mongoose.model('Nounou',nounouSchema);
 
 nounouSchema.pre('save',function(next){
 
-var address=this.adresse;
+var address=this.adresse+" "+this.ville;
     var self=this;
    gm.geocode(address, function (err, data) {
 

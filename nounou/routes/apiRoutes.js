@@ -58,7 +58,7 @@ module.exports = function (app) {
     * */
     app.post('/api/nounous', function (req, res) {
         /*Check des parametres reçut (obligatoires)*/
-        if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
+        if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse","ville", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
 
 	        if (checkParams(req.query, ['time', 'login', 'signature'])) {
             identite.verifieIdentite(req, function (response) {
@@ -92,7 +92,7 @@ module.exports = function (app) {
 
         /*Check des parametres obligatoires*/
 
-        if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
+        if (checkParams(req.body, ["nom", "prenom", "dateDeNaissance", "civilite", "adresse","ville", "email", "tarifHoraire", "descriptionPrestation", "telephone", "disponibilite", "cheminPhoto", "password"])) {
 
             if (checkParams(req.query, ['time', 'login', 'signature'])) {
 
