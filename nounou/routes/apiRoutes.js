@@ -41,6 +41,10 @@ module.exports = function (app) {
             return api.getNounous(req,res);
     });
 
+    /*Retourne la liste de toutes les nounous de la base de données limitées à 50*/
+    app.get('/api/nounous',function(req,res){
+        return api.getAllNounous(req,res);
+    })
 	/***Retourne la liste des nounous dans un rayon donné
 	 *
 	 * */
@@ -118,7 +122,6 @@ module.exports = function (app) {
 		    if (checkParams(req.query, ['time', 'login', 'signature'])) {
 
 					    return api.removeNounou(req, res);
-
 		    }
 		    else {
 			    return res.respond(403);
