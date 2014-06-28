@@ -8,7 +8,6 @@ var gm = require('googlemaps');
 var geoPointSchema=mongoose.Schema({
     longitude:{type:Number,required:true},
     latitude:{type:Number,required:true}
-
 });
 
 //var geoPoint=mongoose.model('geoPoint',geoPointSchema);

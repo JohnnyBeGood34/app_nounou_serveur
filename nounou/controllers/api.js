@@ -7,11 +7,6 @@ var mongoose = require('mongoose');
 var geolib = require('geolib');
 var eachAsync=require('each-async');
 var fs=require('fs');
-
-
-
-
-
 /*API : toutes les fonctions appelées dans l'apiRoutes.js*/
 module.exports = {
 
@@ -38,7 +33,16 @@ module.exports = {
         });
 
     },
-
+    getAllNounous : function(req,res){
+        Nounou.find(function(err,json){
+            if(err){
+                return res.send({"code":404,"status":404, "message":"not found"});
+            }
+            else{
+                res.send({allNounous:json});
+            }
+        }).limit(50);
+    },
     /*Renvoie les nounous ordonnées par distance à 100 km par défaut
     *
     * */
