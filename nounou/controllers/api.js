@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var geolib = require('geolib');
 var eachAsync=require('each-async');
 var fs=require('fs');
+
 /*API : toutes les fonctions appelées dans l'apiRoutes.js*/
 module.exports = {
 
@@ -69,10 +70,6 @@ module.exports = {
     createNounou : function(req,res){
         var body = req.body,
             newNounou;
-        /*Log console*/
-        //console.log("POST : Creation d'une nounou :");
-        //console.log(body);
-        /*Creation du modèle*/
 
         newNounou = new Nounou({nom:body.nom,prenom:body.prenom,dateDeNaissance:body.dateDeNaissance,civilite:body.civilite,
             adresse:body.adresse,ville:body.ville,email:body.email,tarifHoraire:body.tarifHoraire,descriptionPrestation:body.descriptionPrestation,
@@ -83,7 +80,7 @@ module.exports = {
             if (err) {
 	                    //Erreur spécifique l'addresse n'a pas été trouvé par Googlemaps
 	                    if(err.address == 404){
-		                    res.send({"code":404,"status": 404, "message": "address not found"});
+		                    res.send({"code":404,"status": 404, "message":404});
 		                    console.log("Addresse non valide");
 	                    }
                      else   res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
@@ -148,7 +145,7 @@ module.exports = {
 	                         //Erreur spécifique l'addresse n'a pas été trouvé par Googlemaps
 	                        if(err.address == 404){
 
-		                        res.send({"code":404,"status": 404, "message": "address not found"});
+		                        res.send({"code":404,"status": 404, "message":404});
 		                        console.log("Addresse non valide");
 	                        }
                             else res.send({"code":404,"status": 404, "message": "error"});
@@ -195,8 +192,7 @@ module.exports = {
     * */
 	saveImage:function(req,res){
 
-		console.log('Image ....'+req.files.image.name);
-		console.log("Id nounou :"+req.param('id'));
+
 		fs.readFile(req.files.image.path,function(err,data){
 
 			var nomImage=req.param('id');
@@ -206,16 +202,18 @@ module.exports = {
 
 			fs.writeFile('./public/images/'+nomImage+".png",data,function(err){
 				if(err) {
-					console.log("Erreur :"+err);
+
 					res.send({"code":500,"status": 500, "message": null});
 				}
-				console.log('fichier enregistré');
+
 				res.send({"code":200,"status": 200, "message": null});
 			});
 
 		});
 	}
 	,
+
+	/*Retourne les coordonnées selon l'ID de la nounou */
 	getLatLngById:function(req,res){
 
 		var id=req.param('id');
@@ -254,12 +252,11 @@ function getNounousNear(req,res){
 	var coordClient={latitude:req.param('lat'),longitude:req.param('lng')};
 	var distance=parseInt(req.param('km'));
 	distance= isNaN(distance) ? 100:distance;//Si pas de param km distance est égal à 100
-	//console.log('distance :'+distance);
-	//console.log('coord Client :'+coordClient.latitude);
+
 
 	Nounou.find(function(err,nounous){
 		if(!err){
-//res.send({allNounous:nounous});
+
 			for(var i in nounous){
 
 				var idClé=nounous[i]._id;
@@ -283,7 +280,7 @@ function getNounousNear(req,res){
 
 		}//
 		else  return res.send(err,404);
-		// console.log("Coord all nounous "+coordAllNounous);
+
 		/*
 		 * Param 1: les coordonées à du point de départ
 		 * Param 2: Array ou Object des coordonées à  trier par rapport au point de départ
@@ -306,7 +303,6 @@ function getNounousNear(req,res){
 
 			/*Fonction appelée une fois le foreach fini*/
 			function(){
-				//console.log("foreach done !");
 				res.send({allNounous:nounousOrdered},200);
 			}
 		)//Foreach
