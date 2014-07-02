@@ -81,7 +81,13 @@ module.exports = {
         newNounou.save(function (err, nounou) {
 
             if (err) {
-                res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
+	                    //Erreur spécifique l'addresse n'a pas été trouvé par Googlemaps
+	                    if(err.address == 404){
+		                    res.send({"code":404,"status": 404, "message": "address not found"});
+		                    console.log("Addresse non valide");
+	                    }
+                     else   res.respond(405);/*Les parametres reçut ne sont pas acceptables*/
+
             } else {
 	            res.send({"code":200,"status":200, "message":nounou._id});
             }
@@ -136,9 +142,18 @@ module.exports = {
                 nounou.password = body.password;
                 /*Sauvegarde des modifications*/
                 nounou.save(function(err,doc){
+
                     if(err){//Si il y a une erreur lors du save
-                        res.send({"code":404,"status": 404, "message": "error"});
+
+	                         //Erreur spécifique l'addresse n'a pas été trouvé par Googlemaps
+	                        if(err.address == 404){
+
+		                        res.send({"code":404,"status": 404, "message": "address not found"});
+		                        console.log("Addresse non valide");
+	                        }
+                            else res.send({"code":404,"status": 404, "message": "error"});
                     }
+
                     else{
 	                    res.send({"code":200,"status":200, "message":null});
                     }
@@ -146,6 +161,7 @@ module.exports = {
             }
         });
     },
+
 
 	/*
 	*Suppression d'une nounou
@@ -199,7 +215,24 @@ module.exports = {
 
 		});
 	}
+	,
+	getLatLngById:function(req,res){
+
+		var id=req.param('id');
+
+		Nounou.findById(id,function(err,nounou){
+
+			if(!err){
+				res.send({latitude:nounou.localisation[0].latitude,
+					     longitude:nounou.localisation[0].longitude});
+			}
+			else res.send({"code":404,"status":404,"message":"not found"});
+		})
+	}
+
+
 }
+
 
 /*
 * Fonction permettant d'effacer l'image de profil d'une Nounou en fonction de son id

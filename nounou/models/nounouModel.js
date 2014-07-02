@@ -32,28 +32,31 @@ var nounouSchema = mongoose.Schema({
 var Nounou = mongoose.model('Nounou',nounouSchema);
 
 
-nounouSchema.pre('save',function(next){
+nounouSchema.pre('save',function(next,done){
 
 var address=this.adresse+" "+this.ville;
     var self=this;
    gm.geocode(address, function (err, data) {
 
-        var location = data.results[0].geometry.location;
-       //console.log(location);
-        var result;
-        if (err) {
-            console.log(err);
-            result = "error";
-        }
-        else {
 
-            result = location;
-        }
+    var location;
 
-       self.localisation={latitude:result.lat,longitude:result.lng};
-       self.cheminPhoto="/images/"+self._id+".png";
+	   if(  typeof data != 'undefined' && !err ){
 
-       next();
+		    location = data.results[0].geometry.location;
+		   console.log(location);
+
+
+		   self.localisation={latitude:location.lat,longitude:location.lng};
+		   self.cheminPhoto="/images/"+self._id+".png";
+
+		   next();
+	   }
+	   else done({address:404});
+	  
+
+
+
     });
 
 });

@@ -141,6 +141,15 @@ module.exports = function (app) {
 	})
 
 
+	/*
+	*
+	* */
+	app.get('/api/getLatLngNounou/:id',function(req,res){
+
+		return api.getLatLngById(req,res);
+
+	})
+
     /*Toute requetes non implémentées dans l'api renvoie le code erreur 405 Method not allowed
     *
     * */
