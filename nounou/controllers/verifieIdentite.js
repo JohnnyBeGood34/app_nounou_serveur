@@ -19,6 +19,7 @@ module.exports = {
             signature = req.param('signature'),
             text="";
 
+
           var result = true;
 
         /*Find du client*/
