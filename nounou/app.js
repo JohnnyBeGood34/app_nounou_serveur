@@ -45,19 +45,18 @@ require("./models/clientModel");
 
 /*routes api*/
 var routes = require('./routes/apiRoutes')(app);
-
-/*var nounou=new Nounou({nom:"testGeopoint",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"Berlin",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
+/*
+var nounou=new Nounou({nom:"testGeopoint",prenom:"stef",dateDeNaissance:"20/09",civilite:"civil",adresse:"aze",ville:"ghj",email:"dupre@stef.fr",tarifHoraire:"tarif horaire",
     description:"desc",telephone:"0122334455",disponibilite:"dispo",cheminPhoto:"photo",password:"pass"});
 
 nounou.save(function(err,doc){
     if(err){
-        console.log(" error no validation ");
+        console.log(err.address);
     }
     else{
         console.log("success");
     }
 });
-*/
 /*var client= new Client({pseudo:"test",password:"azerty5AZERTY"});
 client.save(function(err,doc){
     if(err){

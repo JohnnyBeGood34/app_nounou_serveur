@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
     hash="",
     hmac;
 require("../models/timestampModel");
+
 module.exports = {
 
     verifieIdentite: function (req,callback) {
@@ -55,12 +56,17 @@ module.exports = {
                            // console.log('Time stamp BDD :'+timestampClient.timestamp);
                             if (parseInt(timestampClient.timestamp) < parseInt(timestamp))//Si le timestamp en base est plus petit que le timestamp reçut
                             {
-								console.log(body)
+								console.log("Body : "+body);
                                 /*Vérification signature*/
-                                Object.keys(body).forEach(function (key) {
+                                //Si le body contient qq chose
 
-                                    text += body[key];
-                                });
+
+		                            Object.keys(body).forEach(function (key) {
+
+			                            text += body[key];
+		                            });
+
+
 
                                 text += password;
 

@@ -116,14 +116,17 @@ module.exports = function (app) {
     /*Supprime un objet nounou par rapport à son Id
     *
     * */
-    app.delete('/api/nounou/id/:id', function (req, res) {
+
+     app.delete('/api/nounou/id/:id', function (req, res) {
 
 
 		    if (checkParams(req.query, ['time', 'login', 'signature'])) {
 
-					    return api.removeNounou(req, res);
+	                   if(response)  return api.removeNounou(req, res);
+
 		    }
 		    else {
+
 			    return res.respond(403);
 		    }
 
@@ -140,6 +143,15 @@ module.exports = function (app) {
 		return api.saveImage(req,res);
 	})
 
+
+	/*
+	*Retourne les coordonnées selon l'ID de la nounou
+	* */
+	app.get('/api/getLatLngNounou/:id',function(req,res){
+
+		return api.getLatLngById(req,res);
+
+	})
 
     /*Toute requetes non implémentées dans l'api renvoie le code erreur 405 Method not allowed
     *
